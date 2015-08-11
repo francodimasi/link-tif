@@ -58,12 +58,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <x-header-layout class="header-layout" main page$="[[page]]">
 
-        <x-header class="main-header" waterfall>
+        <x-header class="main-header" waterfall fixed="[[!narrowLayout]]">
           <x-toolbar class="main-toolbar">
             <a class="toolbar-badge badge-blue-small" href=""></a>
 
             <div class="flex horizontal center-center layout">
-              <iron-selector class="wide-only" selected="[[page]]" attr-for-selected="name">
+              <iron-selector class="wide-only" selected="[[page]]" activate-event="click" attr-for-selected="name">
                 <a name="schedule" class="tab" href="schedule">SCHEDULE</a>
                 <a name="speakers" class="tab" href="speakers">SPEAKERS</a>
               </iron-selector>
@@ -174,9 +174,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           </section>
 
-          <schedule-view name="schedule" schedule="{{schedule}}" narrow-layout="{{narrowLayout}}"></schedule-view>
+          <schedule-grid name="schedule" schedule="{{schedule}}" narrow-layout="{{narrowLayout}}"></schedule-grid>
 
-          <speakers-view name="speakers" speakers="{{speakers}}" narrow-layout="{{narrowLayout}}"></speakers-view>
+          <speakers-grid name="speakers" speakers="{{speakers}}" narrow-layout="{{narrowLayout}}"></speakers-grid>
 
         </iron-pages>
 
@@ -211,6 +211,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <iron-ajax auto url="data/speakers.json" last-response="{{speakers}}"></iron-ajax>
     <iron-ajax auto url="data/schedule.json" last-response="{{schedule}}"></iron-ajax>
+
+    <x-scrollpos-control selected="[[page]]"></x-scrollpos-control>
 
   </template>
 
