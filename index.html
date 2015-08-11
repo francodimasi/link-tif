@@ -24,7 +24,6 @@
   <meta property="og:description" content="Join us for an evening of breakout sessions and code labs, followed by an all-day summit of Polymer tech talks and an after hours event.">
   <meta property="og:type" content="Event">
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Mono:400,400italic,500,500italic,700,700italic|Roboto:400,400italic,500,500italic,700,700italic">
   <style>
 /*
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
@@ -39,10 +38,9 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background: #f2f2f2;
-  color: #000;
-  font-size: 23px;
-  line-height: 24px;
-  font-weight: 300;
+  color: #333;
+  font-size: 22px;
+  line-height: 25px;
   letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
@@ -55,7 +53,6 @@ a {
 }
 
 p {
-  font-weight: 300;
   line-height: 36px;
 }
 
@@ -86,18 +83,17 @@ h3 {
 }
 
 .badge-white {
-  width: 400px;
-  height: 400px;
+  position: relative;
+  width: 300px;
+  height: 300px;
   background: url("images/badge_white.png") no-repeat center center;
   background-size: contain;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
 }
 
-.badge-blue-simple {
+.badge-blue-small {
   width: 100px;
   height: 60px;
-  background: url("images/badge_blue_simple.png") no-repeat center center;
+  background: url("images/badge_blue_small.png") no-repeat center center;
   background-size: contain;
 }
 
@@ -109,25 +105,25 @@ h3 {
   background-size: contain;
 }
 
-paper-button {
-  margin: 0;
-}
-
 .main-header {
-  background-color: #41A4F4;
+  background-color: #4FB6F7;
 }
 
-.main-header:not([page=home]) {
+.header-layout:not([page=home]) > .main-header {
   background-color: #fff;
 }
 
-.main-header:not([page=home]) .tab:not(.iron-selected) {
-  color: #41A4F4;
+.header-layout:not([page=home]) .tab:not(.iron-selected) {
+  color: #4FB6F7;
   border-color: #eee;
 }
 
-.main-header:not([page=home]) .tab.iron-selected {
-  border-color: 2px solid rgb(249, 81, 140);
+.header-layout:not([page=home]) .tab.iron-selected {
+  border-color: #FC6C9C;
+}
+
+.header-layout[page=home] .home-page-hidden {
+  display: none;
 }
 
 .main-toolbar {
@@ -140,7 +136,7 @@ paper-button {
   top: 10px;
 }
 
-.main-header[page=home] .toolbar-badge {
+.header-layout[page=home] .toolbar-badge {
   display: none;
 }
 
@@ -149,15 +145,15 @@ paper-button {
   margin: 0 16px;
   font-size: 18px;
   font-weight: 600;
-  color: #1464BF;
-  border-bottom: 2px solid #1464BF;
+  color: #147BCC;
+  border-bottom: 2px solid #147BCC;
 }
 
 .menu-icon {
   height: 32px !important;
   width: 32px !important;
   padding: 16px;
-  color: #1464BF;
+  color: #147BCC;
   cursor: pointer;
 }
 
@@ -177,132 +173,201 @@ paper-button {
 
 .menu-item.iron-selected {
   opacity: 1;
-  border-color: rgb(249, 81, 140);
+  border-color: #FC6C9C;
 }
 
 .home-header {
   height: 420px;
-  background-color: #41A4F4;
+  background-color: #4FB6F7;
 }
 
-.date-loc-info, .wait-list-info {
+.blue-banner {
+  background:
+    url("images/Angle_Pattern/Lt_Blue_BG/Summit_AnglePattern_Blue_Sm.png") center center,
+    url("images/Angle_Pattern/Lt_Blue_BG/Summit_AnglePattern_Blue_Lg.png") center center;
+  background-size: 630px 305px, 512px 300px;
+  background-color: #147BCC;
+}
+
+.date-loc-banner, .speakers-banner {
+  position: relative;
   padding: 48px 0;
   box-sizing: border-box;
-  background-color: #1464BF;
   text-align: center;
   font-size: 28px;
   font-weight: 600;
   color: #fff;
 }
 
-.welcome {
+.speakers-banner {
+  font-weight: 300;
+}
+
+.date-loc-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 16px 0;
+  border: 2px solid #fff;
+  border-right: none;
+  border-left: none;
+}
+
+.welcome-msg {
   max-width: 740px;
   padding: 64px 16px;
   text-align: center;
+  font-size: 23px;
 }
 
-.wait-list-info {
+.wait-list-banner {
+  position: relative;
   padding: 32px 0;
-  background-color: rgba(249, 81, 140, 0.8);
-  font-weight: 300;
+  box-sizing: border-box;
+  text-align: center;
+  color: #fff;
+  /* pink pattern */
+  background:
+    url("images/Pink_BG_Pattern/Desktop/Summit_PinkBGPattern_Left.png") center left repeat-y,
+    url("images/Pink_BG_Pattern/Desktop/Summit_PinkBGPattern_Right.png") center right repeat-y;
+  background-color: #FC6C9C;
+  background-size: 25%;
 }
 
 .wait-list-btn {
   display: block;
+  position: relative;
   padding: 16px;
   margin-left: 24px;
-  background-color: rgb(249, 81, 140);
-  font-weight: 600;
+  background-color: #E45484;
+}
+
+.wait-list-btn::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 14px);
+  right: -14px;
+  width: 0;
+  height: 0;
+  border-color: transparent #E45484;
+  border-width: 14px 0 14px 14px;
+  border-style: solid;
+  -webkit-transform: scaleY(2.0);
+  transform: scaleY(2.0);
 }
 
 .amsterdam-bg {
   display: block;
+  position: relative;
   height: 600px;
   background: url("images/muziekgebouw.jpg") no-repeat center 0%;
   background-size: cover;
 }
 
-.more-info h3 {
+.amsterdam-scrim {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.56);
+}
+
+.amsterdam-info h3 {
   padding-bottom: 24px;
   margin: 16px 0;
   border-bottom: 2px solid;
 }
 
 .about_waterfront h3 {
-  border-color: #41A4F4;
+  border-color: #4FB6F7;
 }
 
 .getting_there h3 {
   border-color: #fff;
 }
 
-.more-info .inner {
-  width: 400px;
+.amsterdam-info section {
+  max-width: 400px;
 }
 
 .about_waterfront {
-  padding: 48px 24px 24px 8px;
-  color: #41A4F4;
+  padding: 48px 24px 24px 16px;
+  color: #4FB6F7;
 }
 
 .getting_there {
   padding: 48px 8px 24px 24px;
-  background-color: #41A4F4;
+  background-color: #4FB6F7;
   color: #fff;
 }
 
-.getting_there .text {
+.getting_there .direction {
   font-size: 18px;
   margin-bottom: 16px;
 }
 
-.subheading {
-  height: 180px;
-  background-color: #333;
+.misc-banner {
+  padding: 24px 16px;
+  text-align: center;
+  /* dark pattern */
+  background:
+    url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Sm.png") center center,
+    url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Md.png") center center,
+    url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Lg.png") center center;
+  background-size: 420px 210px, 600px 300px, 600px 600px;
+  background-color: #1F1F35;
 }
 
-.subheading > h3 {
+.misc-banner > h3 {
   color: #fff;
 }
 
-.subheading > .divider {
+.misc-banner > .divider {
   width: 200px;
   padding-top: 24px;
   margin-bottom: 24px;
-  border-bottom: 2px solid #41A4F4;
+  border-bottom: 2px solid #4FB6F7;
 }
 
-.subheading > .desc {
-  color: #41A4F4;
+.misc-banner > .desc {
+  color: #4FB6F7;
   text-align: center;
   font-size: 28px;
   line-height: 36px;
   font-style: italic;
 }
 
-.subheading-card {
+.misc-card {
   max-width: 900px;
   margin: 120px 32px;
   padding: 32px;
-  color: #41A4F4;
+  color: #4FB6F7;
   background-color: #fff;
 }
 
-.subheading-card .main {
+.misc-card-content {
   margin-right: 24px;
 }
 
-.subheading-card paper-button {
+.misc-card paper-button {
   width: 100%;
 }
 
-paper-button.blue {
-  background-color: #41A4F4;
+paper-button.anchor-button {
+  margin: 0;
+}
+
+.anchor-button.blue {
+  background-color: #4FB6F7;
   color: #fff;
 }
 
-paper-button.red {
-  background-color: rgb(249, 81, 140);
+.anchor-button.red {
+  background-color: #FC6C9C;
   color: #fff;
 }
 
@@ -314,14 +379,14 @@ paper-button.red {
   max-width: 900px;
   margin: 0 auto;
   padding: 24px 16px;
-  font-size: 20px;
-  color: #41A4F4;
+  font-size: 18px;
+  color: #4FB6F7;
   line-height: 48px;
 }
 
 .footer-inner .title {
-  font-size: 23px;
-  color: #000;
+  font-size: 20px;
+  color: #333;
 }
 
 @media (min-width: 801px) {
@@ -341,38 +406,59 @@ paper-button.red {
     display: none !important;
   }
 
-  .location, .wait-list-info > h3 {
+  .date-loc-banner > .location, .wait-list-banner > h3 {
+    margin-bottom: 16px;
+  }
+
+  .speakers-banner {
+    padding: 24px 0 8px;
+  }
+
+  .speakers-banner > * {
     margin-bottom: 16px;
   }
 
   .about_waterfront, .getting_there {
-    padding: 8px;
-  }
-
-  .codelabs {
-    margin: 8px;
-  }
-
-  .subheading-card {
-    margin: 24px;
     padding: 16px;
   }
 
-  .subheading-card .main {
-    margin: 8px;
+  .about_waterfront > section, .getting_there > section {
+    width: 400px;
+  }
+
+  .codelabs {
+    margin: 0;
+  }
+
+  .misc-card {
+    margin: 16px;
+    padding: 16px;
+  }
+
+  paper-material[elevation].misc-card {
+    box-shadow: none;
+  }
+
+  .misc-card-content {
+    margin: 0;
   }
 
   .wait-list-btn {
     margin: 0;
   }
+
+  .wait-list-banner {
+    background: #FC6C9C url("images/Pink_BG_Pattern/Mobile/Summit_PinkBGMobile.png") center center;
+    background-size: cover;
+  }
 }
 
 @media (max-width: 420px) {
-  .more-info .inner {
-    width: 300px;
+  .amsterdam-info section {
+    width: 100%;
   }
 
-  .subheading-card {
+  .misc-card {
     margin: 0;
     padding: 16px;
   }
@@ -2752,7 +2838,450 @@ if (typeof HTMLTemplateElement === "undefined") {
   var head = document.querySelector("head");
   head.insertBefore(style, head.firstChild);
 })(window.WebComponents);</script>
-  <script>(function () {
+  <style>
+/*
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+*/
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #f2f2f2;
+  color: #333;
+  font-size: 22px;
+  line-height: 25px;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  font-size: inherit;
+  color: inherit;
+}
+
+p {
+  line-height: 36px;
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 48px;
+  margin: 0;
+  padding: 0;
+}
+
+.bottom-spacer {
+  margin-bottom: 24px;
+}
+
+.dot-separator {
+  padding: 0 8px;
+}
+
+.dot-separator::after {
+  content: '\2022';
+}
+
+.badge-blue {
+  width: 300px;
+  height: 300px;
+  background: url("images/badge_blue.png") no-repeat center center;
+  background-size: contain;
+}
+
+.badge-white {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: url("images/badge_white.png") no-repeat center center;
+  background-size: contain;
+}
+
+.badge-blue-small {
+  width: 100px;
+  height: 60px;
+  background: url("images/badge_blue_small.png") no-repeat center center;
+  background-size: contain;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+  background: url("images/polymer.svg") 50% no-repeat;
+  background-size: contain;
+}
+
+.main-header {
+  background-color: #4FB6F7;
+}
+
+.header-layout:not([page=home]) > .main-header {
+  background-color: #fff;
+}
+
+.header-layout:not([page=home]) .tab:not(.iron-selected) {
+  color: #4FB6F7;
+  border-color: #eee;
+}
+
+.header-layout:not([page=home]) .tab.iron-selected {
+  border-color: #FC6C9C;
+}
+
+.header-layout[page=home] .home-page-hidden {
+  display: none;
+}
+
+.main-toolbar {
+  height: 80px;
+}
+
+.toolbar-badge {
+  position: absolute;
+  left: 24px;
+  top: 10px;
+}
+
+.header-layout[page=home] .toolbar-badge {
+  display: none;
+}
+
+.tab {
+  padding: 8px 0;
+  margin: 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #147BCC;
+  border-bottom: 2px solid #147BCC;
+}
+
+.menu-icon {
+  height: 32px !important;
+  width: 32px !important;
+  padding: 16px;
+  color: #147BCC;
+  cursor: pointer;
+}
+
+.nav {
+  background-color: #1F2036;
+  padding: 56px 24px 24px;
+}
+
+.menu-item {
+  display: inline-block;
+  padding: 8px 0;
+  margin-bottom: 24px;
+  color: #fff;
+  border-bottom: 2px solid;
+  opacity: 0.5;
+}
+
+.menu-item.iron-selected {
+  opacity: 1;
+  border-color: #FC6C9C;
+}
+
+.home-header {
+  height: 420px;
+  background-color: #4FB6F7;
+}
+
+.blue-banner {
+  background:
+    url("images/Angle_Pattern/Lt_Blue_BG/Summit_AnglePattern_Blue_Sm.png") center center,
+    url("images/Angle_Pattern/Lt_Blue_BG/Summit_AnglePattern_Blue_Lg.png") center center;
+  background-size: 630px 305px, 512px 300px;
+  background-color: #147BCC;
+}
+
+.date-loc-banner, .speakers-banner {
+  position: relative;
+  padding: 48px 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.speakers-banner {
+  font-weight: 300;
+}
+
+.date-loc-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 16px 0;
+  border: 2px solid #fff;
+  border-right: none;
+  border-left: none;
+}
+
+.welcome-msg {
+  max-width: 740px;
+  padding: 64px 16px;
+  text-align: center;
+  font-size: 23px;
+}
+
+.wait-list-banner {
+  position: relative;
+  padding: 32px 0;
+  box-sizing: border-box;
+  text-align: center;
+  color: #fff;
+  /* pink pattern */
+  background:
+    url("images/Pink_BG_Pattern/Desktop/Summit_PinkBGPattern_Left.png") center left repeat-y,
+    url("images/Pink_BG_Pattern/Desktop/Summit_PinkBGPattern_Right.png") center right repeat-y;
+  background-color: #FC6C9C;
+  background-size: 25%;
+}
+
+.wait-list-btn {
+  display: block;
+  position: relative;
+  padding: 16px;
+  margin-left: 24px;
+  background-color: #E45484;
+}
+
+.wait-list-btn::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 14px);
+  right: -14px;
+  width: 0;
+  height: 0;
+  border-color: transparent #E45484;
+  border-width: 14px 0 14px 14px;
+  border-style: solid;
+  -webkit-transform: scaleY(2.0);
+  transform: scaleY(2.0);
+}
+
+.amsterdam-bg {
+  display: block;
+  position: relative;
+  height: 600px;
+  background: url("images/muziekgebouw.jpg") no-repeat center 0%;
+  background-size: cover;
+}
+
+.amsterdam-scrim {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.56);
+}
+
+.amsterdam-info h3 {
+  padding-bottom: 24px;
+  margin: 16px 0;
+  border-bottom: 2px solid;
+}
+
+.about_waterfront h3 {
+  border-color: #4FB6F7;
+}
+
+.getting_there h3 {
+  border-color: #fff;
+}
+
+.amsterdam-info section {
+  max-width: 400px;
+}
+
+.about_waterfront {
+  padding: 48px 24px 24px 16px;
+  color: #4FB6F7;
+}
+
+.getting_there {
+  padding: 48px 8px 24px 24px;
+  background-color: #4FB6F7;
+  color: #fff;
+}
+
+.getting_there .direction {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.misc-banner {
+  padding: 24px 16px;
+  text-align: center;
+  /* dark pattern */
+  background:
+    url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Sm.png") center center,
+    url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Md.png") center center,
+    url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Lg.png") center center;
+  background-size: 420px 210px, 600px 300px, 600px 600px;
+  background-color: #1F1F35;
+}
+
+.misc-banner > h3 {
+  color: #fff;
+}
+
+.misc-banner > .divider {
+  width: 200px;
+  padding-top: 24px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #4FB6F7;
+}
+
+.misc-banner > .desc {
+  color: #4FB6F7;
+  text-align: center;
+  font-size: 28px;
+  line-height: 36px;
+  font-style: italic;
+}
+
+.misc-card {
+  max-width: 900px;
+  margin: 120px 32px;
+  padding: 32px;
+  color: #4FB6F7;
+  background-color: #fff;
+}
+
+.misc-card-content {
+  margin-right: 24px;
+}
+
+.misc-card paper-button {
+  width: 100%;
+}
+
+paper-button.anchor-button {
+  margin: 0;
+}
+
+.anchor-button.blue {
+  background-color: #4FB6F7;
+  color: #fff;
+}
+
+.anchor-button.red {
+  background-color: #FC6C9C;
+  color: #fff;
+}
+
+.codelabs {
+  margin: 48px;
+}
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  font-size: 18px;
+  color: #4FB6F7;
+  line-height: 48px;
+}
+
+.footer-inner .title {
+  font-size: 20px;
+  color: #333;
+}
+
+@media (min-width: 801px) {
+  .narrow-only {
+    display: none !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .responsive.horizontal.layout {
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .wide-only {
+    display: none !important;
+  }
+
+  .date-loc-banner > .location, .wait-list-banner > h3 {
+    margin-bottom: 16px;
+  }
+
+  .speakers-banner {
+    padding: 24px 0 8px;
+  }
+
+  .speakers-banner > * {
+    margin-bottom: 16px;
+  }
+
+  .about_waterfront, .getting_there {
+    padding: 16px;
+  }
+
+  .about_waterfront > section, .getting_there > section {
+    width: 400px;
+  }
+
+  .codelabs {
+    margin: 0;
+  }
+
+  .misc-card {
+    margin: 16px;
+    padding: 16px;
+  }
+
+  paper-material[elevation].misc-card {
+    box-shadow: none;
+  }
+
+  .misc-card-content {
+    margin: 0;
+  }
+
+  .wait-list-btn {
+    margin: 0;
+  }
+
+  .wait-list-banner {
+    background: #FC6C9C url("images/Pink_BG_Pattern/Mobile/Summit_PinkBGMobile.png") center center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 420px) {
+  .amsterdam-info section {
+    width: 100%;
+  }
+
+  .misc-card {
+    margin: 0;
+    padding: 16px;
+  }
+}
+
+</style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700">
+<script>(function () {
 function resolve() {
 document.body.removeAttribute('unresolved');
 }
@@ -11048,6 +11577,59 @@ if (!window.Promise) {
 
   });
 </script>
+
+
+<script>
+
+  Polymer({
+
+    is: 'iron-media-query',
+
+    properties: {
+
+      /**
+       * The Boolean return value of the media query.
+       */
+      queryMatches: {
+        type: Boolean,
+        value: false,
+        readOnly: true,
+        notify: true
+      },
+
+      /**
+       * The CSS media query to evaluate.
+       */
+      query: {
+        type: String,
+        observer: 'queryChanged'
+      }
+
+    },
+
+    created: function() {
+      this._mqHandler = this.queryHandler.bind(this);
+    },
+
+    queryChanged: function(query) {
+      if (this._mq) {
+        this._mq.removeListener(this._mqHandler);
+      }
+      if (query[0] !== '(') {
+        query = '(' + query + ')';
+      }
+      this._mq = window.matchMedia(query);
+      this._mq.addListener(this._mqHandler);
+      this.queryHandler(this._mq);
+    },
+
+    queryHandler: function(mq) {
+      this._setQueryMatches(mq.matches);
+    }
+
+  });
+
+</script>
 <script>
   /**
    * `IronResizableBehavior` is a behavior that can be used in Polymer elements to
@@ -12597,59 +13179,6 @@ if (!window.Promise) {
 </script>
 
 
-
-
-<script>
-
-  Polymer({
-
-    is: 'iron-media-query',
-
-    properties: {
-
-      /**
-       * The Boolean return value of the media query.
-       */
-      queryMatches: {
-        type: Boolean,
-        value: false,
-        readOnly: true,
-        notify: true
-      },
-
-      /**
-       * The CSS media query to evaluate.
-       */
-      query: {
-        type: String,
-        observer: 'queryChanged'
-      }
-
-    },
-
-    created: function() {
-      this._mqHandler = this.queryHandler.bind(this);
-    },
-
-    queryChanged: function(query) {
-      if (this._mq) {
-        this._mq.removeListener(this._mqHandler);
-      }
-      if (query[0] !== '(') {
-        query = '(' + query + ')';
-      }
-      this._mq = window.matchMedia(query);
-      this._mq.addListener(this._mqHandler);
-      this.queryHandler(this._mq);
-    },
-
-    queryHandler: function(mq) {
-      this._setQueryMatches(mq.matches);
-    }
-
-  });
-
-</script>
 <script>!function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.page=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function (process){
   /* globals require, module */
@@ -15590,7 +16119,6 @@ module.exports = Array.isArray || function (arr) {
       width: 300px;
       margin: 8px;
       box-sizing: border-box;
-      background-color: #fff;
     }
 
     @media (max-width: 1279px) {
@@ -15621,6 +16149,7 @@ module.exports = Array.isArray || function (arr) {
         max-width: auto;
         padding: 0;
       }
+
       :host > ::content > * {
         width: 100%;
         margin: 0;
@@ -15678,7 +16207,7 @@ module.exports = Array.isArray || function (arr) {
         opened: {
           type: Boolean,
           reflectToAttribute: true,
-          opened: false
+          value: false
         }
 
       },
@@ -15687,14 +16216,10 @@ module.exports = Array.isArray || function (arr) {
         tap: '_tapHandler'
       },
 
-      toggle: function() {
-        this.$.collapse.toggle();
-      },
-
       _tapHandler: function(e) {
         var target = Polymer.dom(e).localTarget;
         if (target && target.hasAttribute('collapsible-toggle')) {
-          this.toggle();
+          this.$.collapse.toggle();
         }
       }
 
@@ -15703,12 +16228,6 @@ module.exports = Array.isArray || function (arr) {
   </script>
 
 </dom-module>
-<iron-iconset-svg name="summit" size="24">
-<svg><defs>
-<g id="post-gplus"><path d="M11.2 8.87c0-1.02-.63-3.02-2.08-3.02-.64 0-1.32.44-1.32 1.67 0 1.18.63 2.93 1.97 2.93.06.01 1.43-.01 1.43-1.58zm-.63 4.94l-.31-.01h-.02c-.26 0-1.15.05-1.82.27-.65.24-1.42.72-1.42 1.7 0 1.08 1.04 2.23 2.96 2.23 1.52 0 2.44-1 2.44-1.97 0-.77-.46-1.24-1.83-2.22zm9.43-11.81h-16c-1.1 0-1.99.9-1.99 2l-.01 16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2zm-10.93 17.2c-2.8 0-4.07-1.56-4.07-3.01 0-.45.14-1.59 1.48-2.39.77-.47 1.85-.78 3.14-.91-.19-.25-.34-.55-.34-.99 0-.16.02-.31.05-.46h-.38c-1.97 0-3.15-1.55-3.15-3.04 0-1.73 1.29-3.6 4.11-3.6h4.21l-.34.34-.71.71-.06.06h-.71c.41.42.9 1.12.9 2.16 0 1.4-.74 2.09-1.56 2.73-.16.12-.42.38-.42.72 0 .3.24.5.39.62.13.11.3.22.47.34.81.57 1.92 1.34 1.92 2.88 0 1.77-1.29 3.84-4.93 3.84zm9.93-7.2h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1z"></path></g>
-<g id="post-twitter"><path d="M20 2h-16c-1.1 0-1.99.9-1.99 2l-.01 16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2zm-2.29 7.33c-.06 4.62-3.02 7.78-7.42 7.98-1.82.08-3.14-.5-4.28-1.23 1.34.21 3.01-.32 3.9-1.09-1.32-.13-2.1-.8-2.46-1.88.38.07.78.05 1.14-.03-1.19-.4-2.04-1.13-2.08-2.67.33.15.68.29 1.14.32-.9-.5-1.55-2.35-.8-3.57 1.32 1.45 2.91 2.63 5.52 2.79-.65-2.8 3.06-4.32 4.61-2.44.66-.13 1.19-.38 1.7-.65-.21.65-.62 1.1-1.12 1.47.54-.07 1.03-.21 1.44-.41-.25.53-.81 1.01-1.29 1.41z"></path></g>
-</defs></svg>
-</iron-iconset-svg>
 <dom-module id="speakers-view" assetpath="src/">
 
   <style>
@@ -15717,9 +16236,19 @@ module.exports = Array.isArray || function (arr) {
       display: block;
     }
 
+    a {
+      text-decoration: none;
+      font-size: inherit;
+      color: inherit;
+    }
+
     .photo {
       width: 100%;
       pointer-events: none;
+    }
+
+    .card {
+      background-color: #fff;
     }
 
     .card[narrow] {
@@ -15729,7 +16258,7 @@ module.exports = Array.isArray || function (arr) {
 
     .content {
       position: relative;
-      padding: 16px 16px 0;
+      padding: 16px;
     }
 
     .name, .title {
@@ -15738,21 +16267,20 @@ module.exports = Array.isArray || function (arr) {
 
     .name {
       font-weight: 600;
-      color: #1464BF;
+      color: #147BCC;
     }
 
     .title {
-      color: #41A4F4;
+      color: #4FB6F7;
       font-style: italic;
       opacity: 0.8;
-      margin-bottom: 16px;
     }
 
-    .bottom-content {
+    [collapsible-content] {
       padding: 16px 16px 72px;
     }
 
-    collapsible-card[narrow] .bottom-content {
+    .card[narrow] [collapsible-content] {
       padding: 16px;
     }
 
@@ -15763,11 +16291,10 @@ module.exports = Array.isArray || function (arr) {
     .bottom-tools {
       position: absolute;
       bottom: 16px;
-      font-size: 18px;
       margin-left: -8px;
     }
 
-    collapsible-card[narrow] .bottom-tools {
+    .card[narrow] .bottom-tools {
       position: static;
       margin: 24px 0 24px -8px;
     }
@@ -15776,29 +16303,28 @@ module.exports = Array.isArray || function (arr) {
       padding: 8px;
     }
 
-    .tool-icon {
-      --iron-icon-width: 32px;
-      --iron-icon-height: 32px;
-    }
-
     .toggle-icon {
       position: absolute;
+      right: 8px;
+      bottom: 4px;
       --iron-icon-width: 40px;
       --iron-icon-height: 40px;
-      right: 8px;
-      bottom: -12px;
       padding: 8px;
-      color: #41A4F4;
+      color: #4FB6F7;
       cursor: pointer;
     }
 
-    collapsible-card:not([narrow]) .toggle-icon {
+    .card:not([narrow]) .toggle-icon {
       display: none;
     }
 
-    [opened] .toggle-icon {
+    .card[opened] .toggle-icon {
       -webkit-transform: rotate(180deg);
       transform: rotate(180deg);
+    }
+
+    [hidden] {
+      display: none;
     }
 
   </style>
@@ -15808,7 +16334,7 @@ module.exports = Array.isArray || function (arr) {
     <grid-view>
       <template is="dom-repeat" items="[[speakers]]">
 
-        <collapsible-card class="card" opened="[[!responsiveMatches]]" narrow$="{{responsiveMatches}}">
+        <collapsible-card class="card" opened="[[!narrowLayout]]" narrow$="{{narrowLayout}}">
           <img class="photo" src="[[item.photo]]">
 
           <div class="content">
@@ -15817,13 +16343,13 @@ module.exports = Array.isArray || function (arr) {
             <iron-icon class="toggle-icon" icon="arrow-drop-down" collapsible-toggle=""></iron-icon>
           </div>
 
-          <div class="bottom-content" collapsible-content="">
+          <div collapsible-content="">
             <div class="bio">[[item.bio]]</div>
             <div class="bottom-tools">
-              <a href="[[_gplusUrl(item.gplus)]]" target="_blank">
+              <a href="[[_gplusUrl(item.gplus)]]" target="_blank" hidden$="[[!item.gplus]]">
                 <iron-icon class="tool-icon" icon="summit:post-gplus"></iron-icon>
               </a>
-              <a href="[[_twitterUrl(item.twitter)]]" target="_blank">
+              <a href="[[_twitterUrl(item.twitter)]]" target="_blank" hidden$="[[!item.twitter]]">
                 <iron-icon class="tool-icon" icon="summit:post-twitter"></iron-icon>
               </a>
             </div>
@@ -15833,8 +16359,6 @@ module.exports = Array.isArray || function (arr) {
 
       </template>
     </grid-view>
-
-    <iron-media-query query="[[responsiveQuery]]" query-matches="{{responsiveMatches}}"></iron-media-query>
 
   </template>
 
@@ -15850,8 +16374,9 @@ module.exports = Array.isArray || function (arr) {
           type: Array
         },
 
-        responsiveQuery: {
-          value: '(max-width: 623px)'
+        narrowLayout: {
+          type: Boolean,
+          value: false
         }
 
       },
@@ -15869,6 +16394,12 @@ module.exports = Array.isArray || function (arr) {
   </script>
 
 </dom-module>
+<iron-iconset-svg name="summit" size="24">
+<svg><defs>
+<g id="post-gplus"><path d="M11.2 8.87c0-1.02-.63-3.02-2.08-3.02-.64 0-1.32.44-1.32 1.67 0 1.18.63 2.93 1.97 2.93.06.01 1.43-.01 1.43-1.58zm-.63 4.94l-.31-.01h-.02c-.26 0-1.15.05-1.82.27-.65.24-1.42.72-1.42 1.7 0 1.08 1.04 2.23 2.96 2.23 1.52 0 2.44-1 2.44-1.97 0-.77-.46-1.24-1.83-2.22zm9.43-11.81h-16c-1.1 0-1.99.9-1.99 2l-.01 16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2zm-10.93 17.2c-2.8 0-4.07-1.56-4.07-3.01 0-.45.14-1.59 1.48-2.39.77-.47 1.85-.78 3.14-.91-.19-.25-.34-.55-.34-.99 0-.16.02-.31.05-.46h-.38c-1.97 0-3.15-1.55-3.15-3.04 0-1.73 1.29-3.6 4.11-3.6h4.21l-.34.34-.71.71-.06.06h-.71c.41.42.9 1.12.9 2.16 0 1.4-.74 2.09-1.56 2.73-.16.12-.42.38-.42.72 0 .3.24.5.39.62.13.11.3.22.47.34.81.57 1.92 1.34 1.92 2.88 0 1.77-1.29 3.84-4.93 3.84zm9.93-7.2h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1z"></path></g>
+<g id="post-twitter"><path d="M20 2h-16c-1.1 0-1.99.9-1.99 2l-.01 16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2zm-2.29 7.33c-.06 4.62-3.02 7.78-7.42 7.98-1.82.08-3.14-.5-4.28-1.23 1.34.21 3.01-.32 3.9-1.09-1.32-.13-2.1-.8-2.46-1.88.38.07.78.05 1.14-.03-1.19-.4-2.04-1.13-2.08-2.67.33.15.68.29 1.14.32-.9-.5-1.55-2.35-.8-3.57 1.32 1.45 2.91 2.63 5.52 2.79-.65-2.8 3.06-4.32 4.61-2.44.66-.13 1.19-.38 1.7-.65-.21.65-.62 1.1-1.12 1.47.54-.07 1.03-.21 1.44-.41-.25.53-.81 1.01-1.29 1.41z"></path></g>
+</defs></svg>
+</iron-iconset-svg>
 <dom-module id="schedule-view" assetpath="src/">
 
   <style>
@@ -15880,15 +16411,16 @@ module.exports = Array.isArray || function (arr) {
     .date-card {
       position: relative;
       @apply(--shadow-elevation-2dp);
+      padding: 32px 16px;
+      background-color: #4FB6F7;
       font-size: 38px;
       line-height: 50px;
-      background-color: #41A4F4;
       color: #fff;
-      padding: 32px 16px;;
     }
 
-    collapsible-card.card {
+    .card {
       padding-top: 16px;
+      background-color: #fff;
     }
 
     .card[narrow] {
@@ -15898,7 +16430,7 @@ module.exports = Array.isArray || function (arr) {
 
     .content {
       position: relative;
-      padding: 16px 16px 0;
+      padding: 16px;
     }
 
     .name, .speaker {
@@ -15907,27 +16439,28 @@ module.exports = Array.isArray || function (arr) {
 
     .name {
       font-weight: 600;
-      color: #1464BF;
+      color: #147BCC;
     }
 
     .speaker {
+      margin-bottom: 16px;
       font-size: 20px;
       font-weight: 600;
       font-style: italic;
-      color: #41A4F4;
-      margin-bottom: 16px;
+      color: #4FB6F7;
     }
 
     .time, .location {
       font-size: 18px;
       line-height: 28px;
+      color: #888;
     }
 
-    .bottom-content {
-      padding: 16px 16px 72px;
+    [collapsible-content] {
+      padding: 16px 16px 40px;
     }
 
-    collapsible-card[narrow] .bottom-content {
+    .card[narrow] [collpsible-content] {
       padding: 16px 16px 24px;
     }
 
@@ -15937,20 +16470,20 @@ module.exports = Array.isArray || function (arr) {
 
     .toggle-icon {
       position: absolute;
+      right: 8px;
+      bottom: 4px;
       --iron-icon-width: 40px;
       --iron-icon-height: 40px;
-      right: 8px;
-      bottom: -12px;
       padding: 8px;
-      color: #41A4F4;
+      color: #4FB6F7;
       cursor: pointer;
     }
 
-    collapsible-card:not([narrow]) .toggle-icon {
+    .card:not([narrow]) .toggle-icon {
       display: none;
     }
 
-    [opened] .toggle-icon {
+    .card[opened] .toggle-icon {
       -webkit-transform: rotate(180deg);
       transform: rotate(180deg);
     }
@@ -15962,14 +16495,14 @@ module.exports = Array.isArray || function (arr) {
     <grid-view>
       <template is="dom-repeat" items="[[schedule]]">
 
-        <div class="date-card card">
+        <div class="date-card">
           <div><span>[[item.day]]</span><span>,</span></div>
           <div>[[item.date]]</div>
         </div>
 
         <template is="dom-repeat" items="[[item.sessions]]">
 
-          <collapsible-card class="card" opened="[[!responsiveMatches]]" narrow$="{{responsiveMatches}}">
+          <collapsible-card class="card" opened="[[!narrowLayout]]" narrow$="{{narrowLayout}}">
 
             <div class="content">
               <div class="name">[[item.name]]</div>
@@ -15979,7 +16512,7 @@ module.exports = Array.isArray || function (arr) {
               <iron-icon class="toggle-icon" icon="arrow-drop-down" collapsible-toggle=""></iron-icon>
             </div>
 
-            <div class="bottom-content" collapsible-content="">
+            <div collapsible-content="">
               <div class="desc">[[item.desc]]</div>
             </div>
 
@@ -15989,8 +16522,6 @@ module.exports = Array.isArray || function (arr) {
 
       </template>
     </grid-view>
-
-    <iron-media-query query="[[responsiveQuery]]" query-matches="{{responsiveMatches}}"></iron-media-query>
 
   </template>
 
@@ -16006,8 +16537,9 @@ module.exports = Array.isArray || function (arr) {
           type: Array
         },
 
-        responsiveQuery: {
-          value: '(max-width: 623px)'
+        narrowLayout: {
+          type: Boolean,
+          value: false
         }
 
       }
@@ -16025,16 +16557,17 @@ module.exports = Array.isArray || function (arr) {
 
       <div class="nav fit" drawer="">
         <iron-selector class="menu" selected="[[page]]" activate-event="click" attr-for-selected="name">
-          <a name="schedule" class="menu-item" href="schedule">SCHEDULE</a>
+          <a name="home" class="menu-item" href="">HOME</a><br>
+          <a name="schedule" class="menu-item" href="schedule">SCHEDULE</a><br>
           <a name="speakers" class="menu-item" href="speakers">SPEAKERS</a>
         </iron-selector>
       </div>
 
-      <x-header-layout main="">
+      <x-header-layout class="header-layout" main="" page$="[[page]]">
 
-        <x-header class="main-header" waterfall="" page$="[[page]]">
+        <x-header class="main-header" waterfall="">
           <x-toolbar class="main-toolbar">
-            <a class="toolbar-badge badge-blue-simple" href=""></a>
+            <a class="toolbar-badge badge-blue-small" href=""></a>
 
             <div class="flex horizontal center-center layout">
               <iron-selector class="wide-only" selected="[[page]]" attr-for-selected="name">
@@ -16047,25 +16580,35 @@ module.exports = Array.isArray || function (arr) {
           </x-toolbar>
         </x-header>
 
+        <div class="speakers-banner blue-banner home-page-hidden responsive horizontal center-center layout">
+          <div class="horizontal center layout">
+            <div>14 Speakers</div>
+            <div class="dot-separator"></div>
+            <div>6 Codelabs</div>
+          </div>
+          <div class="dot-separator wide-only"></div>
+          <div>Monday &amp; Tuesday</div>
+        </div>
+
         <iron-pages selected="{{page}}" attr-for-selected="name">
 
-          <div name="home">
+          <section name="home">
 
             <header class="home-header horizontal center-center layout">
               <div class="badge-blue"></div>
             </header>
 
-            <div class="date-loc-info responsive horizontal center-center layout">
+            <div class="date-loc-banner blue-banner responsive horizontal center-center layout">
               <div class="location">Amsterdam, Netherlands</div>
               <div class="dot-separator wide-only"></div>
               <time>September 14-15, 2015</time>
             </div>
 
             <div class="vertical center layout">
-              <p class="welcome">Join us for an evening of breakout sessions and code labs, followed by an all-day summit of Polymer tech talks and an after hours event.</p>
+              <p class="welcome-msg">Join us for an evening of breakout sessions and code labs, followed by an all-day summit of Polymer tech talks and an after hours event.</p>
             </div>
 
-            <div class="wait-list-info responsive horizontal center-center layout">
+            <div class="wait-list-banner pattern responsive horizontal center-center layout">
               <h3>Whoa! We’re already at capacity.</h3>
               <a class="wait-list-btn" target="_blank" href="https://polymer.eventfarm.com/orders/soldOut/7fff5387-0000-4556-a4c1-610d82a69538">Join the Waiting List</a>
             </div>
@@ -16073,81 +16616,90 @@ module.exports = Array.isArray || function (arr) {
             <a class="amsterdam-bg" target="_blank" href="https://www.google.com/maps/place/Muziekgebouw+aan+'t+IJ/@52.3783041,4.9131203,15z/data=!4m2!3m1!1s0x0:0x84b02f41a342e459" data-outbound="image-map">
             </a>
 
-            <div class="more-info responsive horizontal layout">
+            <div class="amsterdam-info responsive horizontal layout">
               <div class="about_waterfront flex vertical center layout">
-                <section class="inner">
+                <section>
                   <h3>Waterfront. Amsterdam.</h3>
                   <p>Muziekgebouw aan ‘t IJ is a leading, open and welcoming stage which excels in concerts of contemporary music and related genres of classical, jazz, electronic pop and world music.</p>
                 </section>
               </div>
               <div class="getting_there flex vertical center layout">
-                <section class="inner">
+                <section>
                   <h3>Getting There.</h3>
                   <div>BY FOOT</div>
-                  <div class="text">Approx 15 minutes from Central Station</div>
+                  <div class="direction">Approx 15 minutes from Central Station</div>
                   <div>BY TRAM</div>
-                  <div class="text">Line 26, ‘stop Muziegebouw / Bimhuis’</div>
+                  <div class="direction">Line 26, ‘stop Muziegebouw / Bimhuis’</div>
                   <div>BY CAR</div>
-                  <div class="text">5 minutes from the A10 ring road motorway</div>
+                  <div class="direction">5 minutes from the A10 ring road motorway</div>
                 </section>
               </div>
             </div>
 
-            <div class="subheading vertical center-center layout">
+            <div class="misc-banner vertical center-center layout">
               <h3>SUMMIT EXTENDED</h3>
               <div class="divider"></div>
               <div class="desc">Be There From Anywhere</div>
             </div>
 
             <div class="vertical center layout">
-              <paper-material class="subheading-card">
+              <paper-material class="misc-card">
                 <div class="responsive horizontal layout">
-                  <section class="main flex">
+                  <section class="misc-card-content flex">
                     <h3>Can’t make it this year?</h3>
                     <p>Streaming video, Polymer Codelabs, and our social media community are a few alternatives for staying connected if you’re unable to attend.</p>
                   </section>
                   <div class="tools vertical layout">
-                    <a target="_blank" href="https://twitter.com/polymer">
-                      <paper-button class="blue bottom-spacer" raised="">Join the Conversation</paper-button>
+                    <a class="bottom-spacer" tabindex="-1" target="_blank" href="https://twitter.com/polymer">
+                      <paper-button class="anchor-button blue" raised="">Join the Conversation</paper-button>
                     </a>
-                    <a target="_blank" href="https://www.youtube.com/user/GoogleDevelopers">
-                      <paper-button class="red" raised="">Stream Video During the Summit</paper-button>
+                    <a target="_blank" tabindex="-1" href="https://www.youtube.com/user/GoogleDevelopers">
+                      <paper-button class="anchor-button red" raised="">Stream Video During the Summit</paper-button>
                     </a>
                   </div>
                 </div>
               </paper-material>
             </div>
 
-            <div class="subheading vertical center-center layout">
-              <h3>POLYMER CODELABS</h3>
-              <div class="divider"></div>
+            <div class="misc-banner vertical center-center layout">
+              <h3>POLYMER CODELABS</h3><div class="divider"></div>
               <div class="desc">Learn and Build with Polymer Team</div>
             </div>
 
             <div class="vertical center layout">
-              <paper-material class="subheading-card">
+              <paper-material class="misc-card">
                 <div class="codelabs">
                   <h3>Codelabs will be happening during the Summit,</h3>
                   <p>but even if you won’t be attendance these will be available online for you to work from the comfort of your own home...or favorite coffee shop.</p>
                 </div>
-                <a target="_blank" href="">
-                  <paper-button class="blue" raised="">Learn More</paper-button>
+                <a tabindex="-1" target="_blank" href="">
+                  <paper-button class="anchor-button blue" raised="">Learn More</paper-button>
                 </a>
               </paper-material>
             </div>
 
-          </div>
+          </section>
 
-          <schedule-view name="schedule" schedule="{{schedule}}"></schedule-view>
-          <speakers-view name="speakers" speakers="{{speakers}}"></speakers-view>
+          <schedule-view name="schedule" schedule="{{schedule}}" narrow-layout="{{narrowLayout}}"></schedule-view>
+
+          <speakers-view name="speakers" speakers="{{speakers}}" narrow-layout="{{narrowLayout}}"></speakers-view>
 
         </iron-pages>
+
+        <div class="wait-list-banner home-page-hidden responsive horizontal center-center layout">
+          <h3>Whoa! We’re already at capacity.</h3>
+          <a class="wait-list-btn" target="_blank" href="https://polymer.eventfarm.com/orders/soldOut/7fff5387-0000-4556-a4c1-610d82a69538">Join the Waiting List</a>
+        </div>
+
+        <a class="amsterdam-bg home-page-hidden vertical center-center layout" href="https://www.google.com/maps/place/Muziekgebouw+aan+'t+IJ/@52.3783041,4.9131203,15z/data=!4m2!3m1!1s0x0:0x84b02f41a342e459" target="_blank" data-outbound="image-map">
+          <div class="amsterdam-scrim"></div>
+          <div class="badge-white"></div>
+        </a>
 
         <footer>
           <div class="footer-inner responsive horizontal center layout">
             <a class="horizontal center layout" href="https://www.polymer-project.org" target="_blank">
-              <div class="logo"></div>
-              <div class="title">Polymer</div>
+              <div class="logo"></div><div class="title">Polymer</div>
             </a>
             <div class="flex"></div>
             <a href="http://polymer.github.io/LICENSE.txt" target="_blank" data-outbound="license-txt">© 2015 Polymer Authors</a>
@@ -16159,6 +16711,8 @@ module.exports = Array.isArray || function (arr) {
       </x-header-layout>
 
     </x-drawer-layout>
+
+    <iron-media-query query="(max-width: 623px)" query-matches="{{narrowLayout}}"></iron-media-query>
 
     <iron-ajax auto="" url="data/speakers.json" last-response="{{speakers}}"></iron-ajax>
     <iron-ajax auto="" url="data/schedule.json" last-response="{{schedule}}"></iron-ajax>
