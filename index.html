@@ -134,10 +134,12 @@ h3 {
   position: absolute;
   left: 24px;
   top: 10px;
+  transition: opacity 0.1s, visibility 0.1s;
 }
 
-.header-layout[page=home] .toolbar-badge {
-  display: none;
+.header-layout[page=home] .main-header:not([threadhold-matches]) .toolbar-badge {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .tab {
@@ -389,7 +391,7 @@ paper-button.anchor-button {
   margin: 0 auto;
   padding: 24px 16px;
   font-size: 18px;
-  color: #4FB6F7;
+  color: #147BCC;
   line-height: 48px;
 }
 
@@ -2957,10 +2959,12 @@ h3 {
   position: absolute;
   left: 24px;
   top: 10px;
+  transition: opacity 0.1s, visibility 0.1s;
 }
 
-.header-layout[page=home] .toolbar-badge {
-  display: none;
+.header-layout[page=home] .main-header:not([threadhold-matches]) .toolbar-badge {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .tab {
@@ -3212,7 +3216,7 @@ paper-button.anchor-button {
   margin: 0 auto;
   padding: 24px 16px;
   font-size: 18px;
-  color: #4FB6F7;
+  color: #147BCC;
   line-height: 48px;
 }
 
@@ -15870,6 +15874,16 @@ module.exports = Array.isArray || function (arr) {
           type: Object,
           value: function() {return window;},
           observer: '_scrollerChanged'
+        },
+
+        threadhold: {
+          type: Number
+        },
+
+        threadholdMatches: {
+          type: Boolean,
+          reflectToAttribute: true,
+          value: false
         }
 
       },
@@ -15921,6 +15935,10 @@ module.exports = Array.isArray || function (arr) {
           this._oldY = y;
           this._oldTop = top;
         }
+        if (this.threadhold != null) {
+          this.threadholdMatches = top > this.threadhold;
+        }
+        this.fire('header-scroll', {scrollTop: top});
       },
 
       _transformY: function(y, node) {
@@ -16508,7 +16526,7 @@ module.exports = Array.isArray || function (arr) {
     .time, .location {
       font-size: 18px;
       line-height: 28px;
-      color: #888;
+      color: #555;
     }
 
     [collapsible-content] {
@@ -16620,7 +16638,7 @@ module.exports = Array.isArray || function (arr) {
 
       <x-header-layout class="header-layout" main="" page$="[[page]]">
 
-        <x-header class="main-header" waterfall="" fixed="[[!narrowLayout]]">
+        <x-header class="main-header" waterfall="" fixed="[[!narrowLayout]]" threadhold="232">
           <x-toolbar class="main-toolbar">
             <a class="toolbar-badge badge-blue-small" href=""></a>
 
