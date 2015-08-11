@@ -38,7 +38,7 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background: #f2f2f2;
-  color: #333;
+  color: #000;
   font-size: 22px;
   line-height: 25px;
   letter-spacing: -0.01em;
@@ -141,7 +141,7 @@ h3 {
 }
 
 .tab {
-  padding: 8px 0;
+  padding: 12px 0;
   margin: 0 16px;
   font-size: 18px;
   font-weight: 600;
@@ -296,6 +296,11 @@ h3 {
 
 .about_waterfront {
   padding: 48px 24px 24px 16px;
+  /* color: #4FB6F7; */
+  color: #147BCC;
+}
+
+.about_waterfront h3 {
   color: #4FB6F7;
 }
 
@@ -345,8 +350,12 @@ h3 {
   max-width: 900px;
   margin: 120px 32px;
   padding: 32px;
-  color: #4FB6F7;
+  color: #147BCC;
   background-color: #fff;
+}
+
+.misc-card h3 {
+  color: #4FB6F7;
 }
 
 .misc-card-content {
@@ -2852,7 +2861,7 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background: #f2f2f2;
-  color: #333;
+  color: #000;
   font-size: 22px;
   line-height: 25px;
   letter-spacing: -0.01em;
@@ -2955,7 +2964,7 @@ h3 {
 }
 
 .tab {
-  padding: 8px 0;
+  padding: 12px 0;
   margin: 0 16px;
   font-size: 18px;
   font-weight: 600;
@@ -3110,6 +3119,11 @@ h3 {
 
 .about_waterfront {
   padding: 48px 24px 24px 16px;
+  /* color: #4FB6F7; */
+  color: #147BCC;
+}
+
+.about_waterfront h3 {
   color: #4FB6F7;
 }
 
@@ -3159,8 +3173,12 @@ h3 {
   max-width: 900px;
   margin: 120px 32px;
   padding: 32px;
-  color: #4FB6F7;
+  color: #147BCC;
   background-color: #fff;
+}
+
+.misc-card h3 {
+  color: #4FB6F7;
 }
 
 .misc-card-content {
@@ -15798,7 +15816,7 @@ module.exports = Array.isArray || function (arr) {
 
     :host([shadow])::after {
       content: '';
-      box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.3);
+      box-shadow: inset 0px 5px 6px -3px rgba(0, 0, 0, 0.4);
       position: absolute;
       left: 0px;
       right: 0px;
@@ -15946,6 +15964,43 @@ module.exports = Array.isArray || function (arr) {
     Polymer({
 
       is: 'x-toolbar'
+
+    });
+
+  </script>
+
+</dom-module>
+<dom-module id="x-scrollpos-control" assetpath="bower_components/app-layout/x-scrollpos-control/">
+
+  <script>
+
+    Polymer({
+
+      is: 'x-scrollpos-control',
+
+      properties: {
+
+        selected: {
+          observer: '_selectedChanged'
+        }
+
+      },
+
+      created: function() {
+        this._scrollposMap = {};
+      },
+
+      _selectedChanged: function(selected, old) {
+        if (old != null) {
+          this._scrollposMap[old] = {x: window.scrollX, y: window.scrollY};
+        }
+        var pos = this._scrollposMap[selected];
+        if (pos != null) {
+          window.scrollTo(pos.x, pos.y);
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }
 
     });
 
@@ -16228,7 +16283,7 @@ module.exports = Array.isArray || function (arr) {
   </script>
 
 </dom-module>
-<dom-module id="speakers-view" assetpath="src/">
+<dom-module id="speakers-grid" assetpath="src/">
 
   <style>
 
@@ -16366,7 +16421,7 @@ module.exports = Array.isArray || function (arr) {
 
     Polymer({
 
-      is: 'speakers-view',
+      is: 'speakers-grid',
 
       properties: {
 
@@ -16400,7 +16455,7 @@ module.exports = Array.isArray || function (arr) {
 <g id="post-twitter"><path d="M20 2h-16c-1.1 0-1.99.9-1.99 2l-.01 16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2zm-2.29 7.33c-.06 4.62-3.02 7.78-7.42 7.98-1.82.08-3.14-.5-4.28-1.23 1.34.21 3.01-.32 3.9-1.09-1.32-.13-2.1-.8-2.46-1.88.38.07.78.05 1.14-.03-1.19-.4-2.04-1.13-2.08-2.67.33.15.68.29 1.14.32-.9-.5-1.55-2.35-.8-3.57 1.32 1.45 2.91 2.63 5.52 2.79-.65-2.8 3.06-4.32 4.61-2.44.66-.13 1.19-.38 1.7-.65-.21.65-.62 1.1-1.12 1.47.54-.07 1.03-.21 1.44-.41-.25.53-.81 1.01-1.29 1.41z"></path></g>
 </defs></svg>
 </iron-iconset-svg>
-<dom-module id="schedule-view" assetpath="src/">
+<dom-module id="schedule-grid" assetpath="src/">
 
   <style>
 
@@ -16529,7 +16584,7 @@ module.exports = Array.isArray || function (arr) {
 
     Polymer({
 
-      is: 'schedule-view',
+      is: 'schedule-grid',
 
       properties: {
 
@@ -16565,12 +16620,12 @@ module.exports = Array.isArray || function (arr) {
 
       <x-header-layout class="header-layout" main="" page$="[[page]]">
 
-        <x-header class="main-header" waterfall="">
+        <x-header class="main-header" waterfall="" fixed="[[!narrowLayout]]">
           <x-toolbar class="main-toolbar">
             <a class="toolbar-badge badge-blue-small" href=""></a>
 
             <div class="flex horizontal center-center layout">
-              <iron-selector class="wide-only" selected="[[page]]" attr-for-selected="name">
+              <iron-selector class="wide-only" selected="[[page]]" activate-event="click" attr-for-selected="name">
                 <a name="schedule" class="tab" href="schedule">SCHEDULE</a>
                 <a name="speakers" class="tab" href="speakers">SPEAKERS</a>
               </iron-selector>
@@ -16680,9 +16735,9 @@ module.exports = Array.isArray || function (arr) {
 
           </section>
 
-          <schedule-view name="schedule" schedule="{{schedule}}" narrow-layout="{{narrowLayout}}"></schedule-view>
+          <schedule-grid name="schedule" schedule="{{schedule}}" narrow-layout="{{narrowLayout}}"></schedule-grid>
 
-          <speakers-view name="speakers" speakers="{{speakers}}" narrow-layout="{{narrowLayout}}"></speakers-view>
+          <speakers-grid name="speakers" speakers="{{speakers}}" narrow-layout="{{narrowLayout}}"></speakers-grid>
 
         </iron-pages>
 
@@ -16716,6 +16771,8 @@ module.exports = Array.isArray || function (arr) {
 
     <iron-ajax auto="" url="data/speakers.json" last-response="{{speakers}}"></iron-ajax>
     <iron-ajax auto="" url="data/schedule.json" last-response="{{schedule}}"></iron-ajax>
+
+    <x-scrollpos-control selected="[[page]]"></x-scrollpos-control>
 
   </template>
 
