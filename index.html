@@ -279,17 +279,17 @@ h3 {
 }
 
 .amsterdam-info h3 {
-  padding-bottom: 24px;
+  padding-bottom: 8px;
   margin: 16px 0;
   border-bottom: 2px solid;
 }
 
 .about_waterfront h3 {
-  border-color: #4FB6F7;
+  color: #4FB6F7;
 }
 
 .getting_there h3 {
-  border-color: #fff;
+  color: #147BCC;
 }
 
 .amsterdam-info section {
@@ -298,7 +298,6 @@ h3 {
 
 .about_waterfront {
   padding: 48px 24px 24px 16px;
-  /* color: #4FB6F7; */
   color: #147BCC;
 }
 
@@ -2899,508 +2898,6 @@ if (typeof HTMLTemplateElement === "undefined") {
   var head = document.querySelector("head");
   head.insertBefore(style, head.firstChild);
 })(window.WebComponents);</script>
-  <style>
-/*
-Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
-*/
-
-body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background: #f2f2f2;
-  color: #000;
-  font-size: 22px;
-  line-height: 25px;
-  letter-spacing: -0.01em;
-  -webkit-font-smoothing: antialiased;
-  -webkit-tap-highlight-color: transparent;
-}
-
-a {
-  text-decoration: none;
-  font-size: inherit;
-  color: inherit;
-}
-
-p {
-  line-height: 36px;
-}
-
-h3 {
-  font-size: 32px;
-  line-height: 48px;
-  margin: 0;
-  padding: 0;
-}
-
-.bottom-spacer {
-  margin-bottom: 24px;
-}
-
-.dot-separator {
-  padding: 0 8px;
-}
-
-.dot-separator::after {
-  content: '\2022';
-}
-
-.badge-blue {
-  width: 300px;
-  height: 300px;
-  background: url("images/badge_blue.png") no-repeat center center;
-  background-size: contain;
-}
-
-.badge-white {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  background: url("images/badge_white.png") no-repeat center center;
-  background-size: contain;
-}
-
-.badge-blue-small {
-  width: 100px;
-  height: 60px;
-  background: url("images/badge_blue_small.png") no-repeat center center;
-  background-size: contain;
-}
-
-.logo {
-  width: 40px;
-  height: 40px;
-  margin-right: 8px;
-  background: url("images/polymer.svg") 50% no-repeat;
-  background-size: contain;
-}
-
-.main-header {
-  background-color: #4FB6F7;
-}
-
-.header-layout:not([page=home]) > .main-header {
-  background-color: #fff;
-}
-
-.header-layout:not([page=home]) .tab:not(.iron-selected) {
-  color: #4FB6F7;
-  border-color: #eee;
-}
-
-.header-layout:not([page=home]) .tab.iron-selected {
-  border-color: #FC6C9C;
-}
-
-.header-layout[page=home] .home-page-hidden {
-  display: none;
-}
-
-.main-toolbar {
-  height: 80px;
-}
-
-.toolbar-badge {
-  position: absolute;
-  left: 24px;
-  top: 10px;
-  transition: opacity 0.1s, visibility 0.1s;
-}
-
-.header-layout[page=home] .main-header:not([threadhold-matches]) .toolbar-badge {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.tab {
-  padding: 12px 0;
-  margin: 0 16px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #147BCC;
-  border-bottom: 2px solid #147BCC;
-}
-
-.menu-icon {
-  height: 32px !important;
-  width: 32px !important;
-  padding: 16px;
-  color: #147BCC;
-  cursor: pointer;
-}
-
-.nav {
-  background-color: #1F2036;
-  padding: 56px 24px 24px;
-}
-
-.menu-item {
-  display: inline-block;
-  padding: 8px 0;
-  margin-bottom: 24px;
-  color: #fff;
-  border-bottom: 2px solid;
-  opacity: 0.5;
-}
-
-.menu-item.iron-selected {
-  opacity: 1;
-  border-color: #FC6C9C;
-}
-
-.home-header {
-  height: 420px;
-  background-color: #4FB6F7;
-}
-
-.blue-banner {
-  background:
-    url("images/Angle_Pattern/Lt_Blue_BG/Summit_AnglePattern_Blue_Sm.png") center center,
-    url("images/Angle_Pattern/Lt_Blue_BG/Summit_AnglePattern_Blue_Lg.png") center center;
-  background-size: 630px 305px, 512px 300px;
-  background-color: #147BCC;
-}
-
-.date-loc-banner, .speakers-banner {
-  position: relative;
-  padding: 48px 0;
-  box-sizing: border-box;
-  text-align: center;
-  font-size: 28px;
-  font-weight: 600;
-  color: #fff;
-}
-
-.speakers-banner {
-  font-weight: 300;
-}
-
-.date-loc-banner::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 16px 0;
-  border: 2px solid #fff;
-  border-right: none;
-  border-left: none;
-}
-
-.welcome-msg {
-  max-width: 740px;
-  padding: 64px 16px;
-  text-align: center;
-  font-size: 23px;
-}
-
-.wait-list-banner {
-  position: relative;
-  padding: 32px 0;
-  box-sizing: border-box;
-  text-align: center;
-  color: #fff;
-  /* pink pattern */
-  background:
-    url("images/Pink_BG_Pattern/Desktop/Summit_PinkBGPattern_Left.png") center left repeat-y,
-    url("images/Pink_BG_Pattern/Desktop/Summit_PinkBGPattern_Right.png") center right repeat-y;
-  background-color: #FC6C9C;
-  background-size: 25%;
-}
-
-.wait-list-btn {
-  display: block;
-  position: relative;
-  padding: 16px;
-  margin-left: 24px;
-  background-color: #E45484;
-}
-
-.wait-list-btn::after {
-  content: '';
-  position: absolute;
-  top: calc(50% - 14px);
-  right: -14px;
-  width: 0;
-  height: 0;
-  border-color: transparent #E45484;
-  border-width: 14px 0 14px 14px;
-  border-style: solid;
-  -webkit-transform: scaleY(2.0);
-  transform: scaleY(2.0);
-}
-
-.amsterdam-bg {
-  display: block;
-  position: relative;
-  height: 600px;
-  background: url("images/muziekgebouw.jpg") no-repeat center 0%;
-  background-size: cover;
-}
-
-.amsterdam-scrim {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.56);
-}
-
-.amsterdam-info h3 {
-  padding-bottom: 24px;
-  margin: 16px 0;
-  border-bottom: 2px solid;
-}
-
-.about_waterfront h3 {
-  border-color: #4FB6F7;
-}
-
-.getting_there h3 {
-  border-color: #fff;
-}
-
-.amsterdam-info section {
-  max-width: 400px;
-}
-
-.about_waterfront {
-  padding: 48px 24px 24px 16px;
-  /* color: #4FB6F7; */
-  color: #147BCC;
-}
-
-.about_waterfront h3 {
-  color: #4FB6F7;
-}
-
-.getting_there {
-  padding: 48px 8px 24px 24px;
-  background-color: #4FB6F7;
-  color: #fff;
-}
-
-.getting_there .direction {
-  font-size: 18px;
-  margin-bottom: 16px;
-}
-
-.misc-banner {
-  padding: 24px 16px;
-  text-align: center;
-  /* dark pattern */
-  background:
-    url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Sm.png") center center,
-    url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Md.png") center center,
-    url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Lg.png") center center;
-  background-size: 420px 210px, 600px 300px, 600px 600px;
-  background-color: #1F1F35;
-}
-
-.misc-banner > h3 {
-  color: #fff;
-}
-
-.misc-banner > .divider {
-  width: 200px;
-  padding-top: 24px;
-  margin-bottom: 24px;
-  border-bottom: 2px solid #4FB6F7;
-}
-
-.misc-banner > .desc {
-  color: #4FB6F7;
-  text-align: center;
-  font-size: 28px;
-  line-height: 36px;
-  font-style: italic;
-}
-
-.misc-card {
-  max-width: 900px;
-  margin: 120px 32px;
-  padding: 32px;
-  color: #147BCC;
-  background-color: #fff;
-}
-
-.misc-card h3 {
-  color: #4FB6F7;
-}
-
-.misc-card-content {
-  margin-right: 24px;
-}
-
-.misc-card paper-button {
-  width: 100%;
-}
-
-paper-button.anchor-button {
-  margin: 0;
-}
-
-.anchor-button.blue {
-  background-color: #4FB6F7;
-  color: #fff;
-}
-
-.anchor-button.red {
-  background-color: #FC6C9C;
-  color: #fff;
-}
-
-.codelabs {
-  margin: 48px;
-}
-
-.footer-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 24px 16px;
-  font-size: 18px;
-  color: #147BCC;
-  line-height: 48px;
-}
-
-.footer-inner .title {
-  font-size: 20px;
-  color: #333;
-}
-
-@media (min-width: 801px) {
-  .narrow-only {
-    display: none !important;
-  }
-}
-
-@media (max-width: 800px) {
-  .responsive.horizontal.layout {
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-
-  .wide-only {
-    display: none !important;
-  }
-
-  .date-loc-banner > .location, .wait-list-banner > h3 {
-    margin-bottom: 16px;
-  }
-
-  .speakers-banner {
-    padding: 24px 0 8px;
-  }
-
-  .speakers-banner > * {
-    margin-bottom: 16px;
-  }
-
-  .about_waterfront, .getting_there {
-    padding: 16px;
-  }
-
-  .about_waterfront > section, .getting_there > section {
-    width: 400px;
-  }
-
-  .codelabs {
-    margin: 0;
-  }
-
-  .misc-card {
-    margin: 16px;
-    padding: 16px;
-  }
-
-  paper-material[elevation].misc-card {
-    box-shadow: none;
-  }
-
-  .misc-card-content {
-    margin: 0;
-  }
-
-  .wait-list-btn {
-    margin: 0;
-  }
-
-  .wait-list-banner {
-    background: #FC6C9C url("images/Pink_BG_Pattern/Mobile/Summit_PinkBGMobile.png") center center;
-    background-size: cover;
-  }
-}
-
-@media (max-width: 420px) {
-  .amsterdam-info section {
-    width: 100%;
-  }
-
-  .misc-card {
-    margin: 0;
-    padding: 16px;
-  }
-}
-
-/* high resolution devices */
-@media (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
-  .badge-blue {
-    background: url("images/badge_blue@2x.png") no-repeat center center;
-    background-size: contain;
-  }
-
-  .badge-white {
-    background: url("images/badge_white@2x.png") no-repeat center center;
-    background-size: contain;
-  }
-
-  .badge-blue-small {
-    background: url("images/badge_blue_small@2x.png") no-repeat center center;
-    background-size: contain;
-  }
-
-  .blue-banner {
-    background:
-      url("images/Angle_Pattern/Lt_Blue_BG/Summit_AnglePattern_Blue_Sm@2x.png") center center,
-      url("images/Angle_Pattern/Lt_Blue_BG/Summit_AnglePattern_Blue_Lg@2x.png") center center;
-    background-size: 630px 305px, 512px 300px;
-    background-color: #147BCC;
-  }
-
-  .wait-list-banner {
-    background:
-      url("images/Pink_BG_Pattern/Desktop/Summit_PinkBGPattern_Left@2x.png") center left repeat-y,
-      url("images/Pink_BG_Pattern/Desktop/Summit_PinkBGPattern_Right@2x.png") center right repeat-y;
-    background-color: #FC6C9C;
-    background-size: 25%;
-  }
-
-  .misc-banner {
-    background:
-      url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Sm@2x.png") center center,
-      url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Md@2x.png") center center,
-      url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Lg@2x.png") center center;
-    background-size: 420px 210px, 600px 300px, 600px 600px;
-    background-color: #1F1F35;
-  }
-}
-
-@media (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
-  .wait-list-banner {
-    background: #FC6C9C url("images/Pink_BG_Pattern/Mobile/Summit_PinkBGMobile@2x.png") center center;
-    background-size: cover;
-  }
-}
-
-</style>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700">
 <script>(function () {
@@ -16585,7 +16082,7 @@ module.exports = Array.isArray || function (arr) {
       position: relative;
       @apply(--shadow-elevation-2dp);
       padding: 32px 16px;
-      background-color: #4FB6F7;
+      background-color: #147BCC;
       font-size: 38px;
       line-height: 50px;
       color: #fff;
@@ -16755,9 +16252,7 @@ module.exports = Array.isArray || function (arr) {
 
         <div class="speakers-banner blue-banner home-page-hidden responsive horizontal center-center layout">
           <div class="horizontal center layout">
-            <div>14 Speakers</div>
-            <div class="dot-separator"></div>
-            <div>6 Codelabs</div>
+            <div>14 Speakers</div><div class="dot-separator"></div><div>6 Codelabs</div>
           </div>
           <div class="dot-separator wide-only"></div>
           <div>Monday &amp; Tuesday</div>
@@ -16786,8 +16281,7 @@ module.exports = Array.isArray || function (arr) {
               <a class="wait-list-btn" target="_blank" href="https://polymer.eventfarm.com/orders/soldOut/7fff5387-0000-4556-a4c1-610d82a69538">Join the Waiting List</a>
             </div>
 
-            <a class="amsterdam-bg" target="_blank" href="https://www.google.com/maps/place/Muziekgebouw+aan+'t+IJ/@52.3783041,4.9131203,15z/data=!4m2!3m1!1s0x0:0x84b02f41a342e459" data-outbound="image-map">
-            </a>
+            <a class="amsterdam-bg" target="_blank" data-outbound="image-map" href="https://www.google.com/maps/place/Muziekgebouw+aan+'t+IJ/@52.3783041,4.9131203,15z/data=!4m2!3m1!1s0x0:0x84b02f41a342e459"></a>
 
             <div class="amsterdam-info responsive horizontal layout">
               <div class="about_waterfront flex vertical center layout">
@@ -16826,7 +16320,7 @@ module.exports = Array.isArray || function (arr) {
                     <a class="bottom-spacer" tabindex="-1" target="_blank" href="https://twitter.com/polymer">
                       <paper-button class="anchor-button blue" raised="">Join the Conversation</paper-button>
                     </a>
-                    <a target="_blank" tabindex="-1" href="https://www.youtube.com/user/GoogleDevelopers">
+                    <a tabindex="-1" target="_blank" href="https://www.youtube.com/user/GoogleDevelopers">
                       <paper-button class="anchor-button red" raised="">Stream Video During the Summit</paper-button>
                     </a>
                   </div>
@@ -16864,20 +16358,20 @@ module.exports = Array.isArray || function (arr) {
           <a class="wait-list-btn" target="_blank" href="https://polymer.eventfarm.com/orders/soldOut/7fff5387-0000-4556-a4c1-610d82a69538">Join the Waiting List</a>
         </div>
 
-        <a class="amsterdam-bg home-page-hidden vertical center-center layout" href="https://www.google.com/maps/place/Muziekgebouw+aan+'t+IJ/@52.3783041,4.9131203,15z/data=!4m2!3m1!1s0x0:0x84b02f41a342e459" target="_blank" data-outbound="image-map">
+        <a class="amsterdam-bg home-page-hidden vertical center-center layout" target="_blank" data-outbound="image-map" href="https://www.google.com/maps/place/Muziekgebouw+aan+'t+IJ/@52.3783041,4.9131203,15z/data=!4m2!3m1!1s0x0:0x84b02f41a342e459">
           <div class="amsterdam-scrim"></div>
           <div class="badge-white"></div>
         </a>
 
         <footer>
           <div class="footer-inner responsive horizontal center layout">
-            <a class="horizontal center layout" href="https://www.polymer-project.org" target="_blank">
+            <a class="horizontal center layout" target="_blank" href="https://www.polymer-project.org">
               <div class="logo"></div><div class="title">Polymer</div>
             </a>
             <div class="flex"></div>
-            <a href="http://polymer.github.io/LICENSE.txt" target="_blank" data-outbound="license-txt">© 2015 Polymer Authors</a>
+            <a target="_blank" href="http://polymer.github.io/LICENSE.txt" data-outbound="license-txt">© 2015 Polymer Authors</a>
             <div class="dot-separator wide-only"></div>
-            <a href="https://www.polymer-project.org" target="_blank" data-outbound="about-polymer">About Polymer</a>
+            <a target="_blank" href="https://www.polymer-project.org" data-outbound="about-polymer">About Polymer</a>
           </div>
         </footer>
 
