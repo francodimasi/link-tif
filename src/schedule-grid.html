@@ -12,8 +12,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/paper-styles/shadow.html">
-<link rel="import" href="grid-view.html">
+<link rel="import" href="cascaded-animation-behavior.html">
 <link rel="import" href="collapsible-card.html">
+<link rel="import" href="grid-view.html">
 <link rel="import" href="summit-icons.html">
 
 <dom-module id="schedule-grid">
@@ -28,15 +29,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       position: relative;
       @apply(--shadow-elevation-2dp);
       padding: 32px 16px;
-      background-color: #4FB6F7;
+      background-color: #147BCC;
       font-size: 38px;
       line-height: 50px;
       color: #fff;
     }
 
+    .date-card:first-child {
+      background-color: #4FB6F7;
+    }
+
     .card {
       padding-top: 16px;
       background-color: #fff;
+    }
+
+    .card, .date-card {
+      -webkit-transform: translateZ(0);
+      will-change: transform;
     }
 
     .card[narrow] {
@@ -104,6 +114,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       transform: rotate(180deg);
     }
 
+    template {
+      display: none;
+    }
+
   </style>
 
   <template>
@@ -111,14 +125,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <grid-view>
       <template is="dom-repeat" items="[[schedule]]">
 
-        <div class="date-card">
+        <div class="date-card" cascaded>
           <div><span>[[item.day]]</span><span>,</span></div>
           <div>[[item.date]]</div>
         </div>
 
-        <template is="dom-repeat" items="[[item.sessions]]">
+        <template is="dom-repeat" items="[[item.sessions]]" on-dom-change="_updateCascadedNodes">
 
-          <collapsible-card class="card" opened="[[!narrowLayout]]" narrow$="{{narrowLayout}}">
+          <collapsible-card class="card" cascaded opened="[[!narrowLayout]]" narrow$="{{narrowLayout}}">
 
             <div class="content">
               <div class="name">[[item.name]]</div>
@@ -146,6 +160,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     Polymer({
 
       is: 'schedule-grid',
+
+      behaviors: [
+        Polymer.CascadedAnimationBehavior,
+      ],
 
       properties: {
 

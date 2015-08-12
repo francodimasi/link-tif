@@ -11,8 +11,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
-<link rel="import" href="grid-view.html">
+<link rel="import" href="cascaded-animation-behavior.html">
 <link rel="import" href="collapsible-card.html">
+<link rel="import" href="grid-view.html">
 
 <dom-module id="speakers-grid">
 
@@ -28,13 +29,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       color: inherit;
     }
 
+    .photo-wrap {
+      position: relative;
+      padding-bottom: 75%; /* 4x3 */
+      background-color: #eaeaea;
+      overflow: hidden;
+    }
+
     .photo {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      pointer-events: none;
+      height: auto;
     }
 
     .card {
       background-color: #fff;
+      -webkit-transform: translateZ(0);
+      will-change: transform;
     }
 
     .card[narrow] {
@@ -118,10 +131,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
 
     <grid-view>
-      <template is="dom-repeat" items="[[speakers]]">
+      <template is="dom-repeat" items="[[speakers]]" on-dom-change="_updateCascadedNodes">
 
-        <collapsible-card class="card" opened="[[!narrowLayout]]" narrow$="{{narrowLayout}}">
-          <img class="photo" src="[[item.photo]]">
+        <collapsible-card class="card" cascaded opened="[[!narrowLayout]]" narrow$="{{narrowLayout}}">
+          <div class="photo-wrap">
+            <img class="photo" src="[[item.photo]]">
+          </div>
 
           <div class="content">
             <div class="name">[[item.name]]</div>
@@ -153,6 +168,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     Polymer({
 
       is: 'speakers-grid',
+
+      behaviors: [
+        Polymer.CascadedAnimationBehavior,
+      ],
 
       properties: {
 

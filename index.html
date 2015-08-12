@@ -80,7 +80,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <div>Monday & Tuesday</div>
         </div>
 
-        <iron-pages selected="{{page}}" attr-for-selected="name">
+        <iron-pages selected="{{page}}" attr-for-selected="name" selected-attribute="showing">
 
           <section name="home">
 
@@ -107,13 +107,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 href="https://www.google.com/maps/place/Muziekgebouw+aan+'t+IJ/@52.3783041,4.9131203,15z/data=!4m2!3m1!1s0x0:0x84b02f41a342e459"></a>
 
             <div class="amsterdam-info responsive horizontal layout">
-              <div class="about_waterfront flex vertical center layout">
+              <div class="about-waterfront flex vertical center layout">
                 <section>
                   <h3>Waterfront. Amsterdam.</h3>
                   <p>Muziekgebouw aan ‘t IJ is a leading, open and welcoming stage which excels in concerts of contemporary music and related genres of classical, jazz, electronic pop and world music.</p>
                 </section>
               </div>
-              <div class="getting_there flex vertical center layout">
+              <div class="getting-there flex vertical center layout">
                 <section>
                   <h3>Getting There.</h3>
                   <div>BY FOOT</div>
@@ -133,20 +133,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </div>
 
             <div class="vertical center layout">
-              <paper-material class="misc-card">
-                <div class="responsive horizontal layout">
-                  <section class="misc-card-content flex">
-                    <h3>Can’t make it this year?</h3>
-                    <p>Streaming video, Polymer Codelabs, and our social media community are a few alternatives for staying connected if you’re unable to attend.</p>
-                  </section>
-                  <div class="tools vertical layout">
-                    <a class="bottom-spacer" tabindex="-1" target="_blank" href="https://twitter.com/polymer">
-                      <paper-button class="anchor-button blue" raised>Join the Conversation</paper-button>
-                    </a>
-                    <a tabindex="-1" target="_blank" href="https://www.youtube.com/user/GoogleDevelopers">
-                      <paper-button class="anchor-button red" raised>Stream Video During the Summit</paper-button>
-                    </a>
-                  </div>
+              <paper-material class="misc-card responsive horizontal layout">
+                <section class="misc-card-content flex-auto">
+                  <h3>Can’t make it this year?</h3>
+                  <p>Streaming video, Polymer Codelabs, and our social media community are a few alternatives for staying connected if you’re unable to attend.</p>
+                </section>
+                <div class="tools">
+                  <a class="bottom-spacer" tabindex="-1" target="_blank" href="https://twitter.com/polymer">
+                    <paper-button class="anchor-button blue" raised>Join the Conversation</paper-button>
+                  </a>
+                  <a tabindex="-1" target="_blank" href="https://www.youtube.com/user/GoogleDevelopers">
+                    <paper-button class="anchor-button red" raised>Stream Video During the Summit</paper-button>
+                  </a>
                 </div>
               </paper-material>
             </div>
@@ -186,6 +184,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <div class="amsterdam-scrim"></div>
           <div class="badge-white"></div>
         </a>
+
+        <div class="home-bottom-banner blue-banner home-page-only horizontal center-center layout">
+          <div class="badge-white"></div>
+        </div>
 
         <footer>
           <div class="footer-inner responsive horizontal center layout">

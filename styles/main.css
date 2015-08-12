@@ -99,7 +99,12 @@ h3 {
   display: none;
 }
 
+.header-layout:not([page=home]) .home-page-only {
+  display: none;
+}
+
 .main-toolbar {
+  position: relative;
   height: 80px;
 }
 
@@ -252,40 +257,39 @@ h3 {
 }
 
 .amsterdam-info h3 {
-  padding-bottom: 24px;
+  padding-bottom: 8px;
   margin: 16px 0;
   border-bottom: 2px solid;
 }
 
-.about_waterfront h3 {
-  border-color: #4FB6F7;
+.about-waterfront h3 {
+  color: #4FB6F7;
 }
 
-.getting_there h3 {
-  border-color: #fff;
+.getting-there h3 {
+  color: #147BCC;
 }
 
 .amsterdam-info section {
   max-width: 400px;
 }
 
-.about_waterfront {
+.about-waterfront {
   padding: 48px 24px 24px 16px;
-  /* color: #4FB6F7; */
   color: #147BCC;
 }
 
-.about_waterfront h3 {
+.about-waterfront h3 {
   color: #4FB6F7;
 }
 
-.getting_there {
+.getting-there {
   padding: 48px 8px 24px 24px;
   background-color: #4FB6F7;
   color: #fff;
 }
 
-.getting_there .direction {
+.getting-there .direction {
   font-size: 18px;
   margin-bottom: 16px;
 }
@@ -337,6 +341,14 @@ h3 {
   margin-right: 24px;
 }
 
+.misc-card > .tools {
+  min-width: 400px;
+}
+
+.misc-card > .tools > a {
+  display: block;
+}
+
 .misc-card paper-button {
   width: 100%;
 }
@@ -357,6 +369,10 @@ paper-button.anchor-button {
 
 .codelabs {
   margin: 48px;
+}
+
+.home-bottom-banner {
+  height: 360px;
 }
 
 .footer-inner {
@@ -402,11 +418,11 @@ paper-button.anchor-button {
     margin-bottom: 16px;
   }
 
-  .about_waterfront, .getting_there {
+  .about-waterfront, .getting-there {
     padding: 16px;
   }
 
-  .about_waterfront > section, .getting_there > section {
+  .about-waterfront > section, .getting-there > section {
     width: 400px;
   }
 
@@ -425,6 +441,10 @@ paper-button.anchor-button {
 
   .misc-card-content {
     margin: 0;
+  }
+
+  .misc-card > .tools {
+    min-width: auto;
   }
 
   .wait-list-btn {
