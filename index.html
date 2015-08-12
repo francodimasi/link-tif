@@ -475,6 +475,56 @@ paper-button.anchor-button {
   }
 }
 
+/* high resolution devices */
+@media (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  .badge-blue {
+    background: url("images/badge_blue@2x.png") no-repeat center center;
+    background-size: contain;
+  }
+
+  .badge-white {
+    background: url("images/badge_white@2x.png") no-repeat center center;
+    background-size: contain;
+  }
+
+  .badge-blue-small {
+    background: url("images/badge_blue_small@2x.png") no-repeat center center;
+    background-size: contain;
+  }
+
+  .blue-banner {
+    background:
+      url("images/Angle_Pattern/Lt_Blue_BG/Summit_AnglePattern_Blue_Sm@2x.png") center center,
+      url("images/Angle_Pattern/Lt_Blue_BG/Summit_AnglePattern_Blue_Lg@2x.png") center center;
+    background-size: 630px 305px, 512px 300px;
+    background-color: #147BCC;
+  }
+
+  .wait-list-banner {
+    background:
+      url("images/Pink_BG_Pattern/Desktop/Summit_PinkBGPattern_Left@2x.png") center left repeat-y,
+      url("images/Pink_BG_Pattern/Desktop/Summit_PinkBGPattern_Right@2x.png") center right repeat-y;
+    background-color: #FC6C9C;
+    background-size: 25%;
+  }
+
+  .misc-banner {
+    background:
+      url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Sm@2x.png") center center,
+      url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Md@2x.png") center center,
+      url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Lg@2x.png") center center;
+    background-size: 420px 210px, 600px 300px, 600px 600px;
+    background-color: #1F1F35;
+  }
+}
+
+@media (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  .wait-list-banner {
+    background: #FC6C9C url("images/Pink_BG_Pattern/Mobile/Summit_PinkBGMobile@2x.png") center center;
+    background-size: cover;
+  }
+}
+
 </style>
 
   <script>/**
@@ -3297,6 +3347,56 @@ paper-button.anchor-button {
   .misc-card {
     margin: 0;
     padding: 16px;
+  }
+}
+
+/* high resolution devices */
+@media (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  .badge-blue {
+    background: url("images/badge_blue@2x.png") no-repeat center center;
+    background-size: contain;
+  }
+
+  .badge-white {
+    background: url("images/badge_white@2x.png") no-repeat center center;
+    background-size: contain;
+  }
+
+  .badge-blue-small {
+    background: url("images/badge_blue_small@2x.png") no-repeat center center;
+    background-size: contain;
+  }
+
+  .blue-banner {
+    background:
+      url("images/Angle_Pattern/Lt_Blue_BG/Summit_AnglePattern_Blue_Sm@2x.png") center center,
+      url("images/Angle_Pattern/Lt_Blue_BG/Summit_AnglePattern_Blue_Lg@2x.png") center center;
+    background-size: 630px 305px, 512px 300px;
+    background-color: #147BCC;
+  }
+
+  .wait-list-banner {
+    background:
+      url("images/Pink_BG_Pattern/Desktop/Summit_PinkBGPattern_Left@2x.png") center left repeat-y,
+      url("images/Pink_BG_Pattern/Desktop/Summit_PinkBGPattern_Right@2x.png") center right repeat-y;
+    background-color: #FC6C9C;
+    background-size: 25%;
+  }
+
+  .misc-banner {
+    background:
+      url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Sm@2x.png") center center,
+      url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Md@2x.png") center center,
+      url("images/Angle_Pattern/DkBlue_Royal_Footer/Summit_AnglePattern_Lg@2x.png") center center;
+    background-size: 420px 210px, 600px 300px, 600px 600px;
+    background-color: #1F1F35;
+  }
+}
+
+@media (max-width: 800px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  .wait-list-banner {
+    background: #FC6C9C url("images/Pink_BG_Pattern/Mobile/Summit_PinkBGMobile@2x.png") center center;
+    background-size: cover;
   }
 }
 
