@@ -372,7 +372,21 @@ paper-button.anchor-button {
 }
 
 .home-bottom-banner {
+  position: relative;
   height: 360px;
+}
+
+.home-bottom-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 16px 0;
+  border: 2px solid #4FB6F7;
+  border-right: none;
+  border-left: none;
 }
 
 .footer-inner {
@@ -444,7 +458,7 @@ paper-button.anchor-button {
   }
 
   .misc-card > .tools {
-    min-width: auto;
+    min-width: 0;
   }
 
   .wait-list-btn {
