@@ -399,7 +399,21 @@ paper-button.anchor-button {
 }
 
 .home-bottom-banner {
+  position: relative;
   height: 360px;
+}
+
+.home-bottom-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 16px 0;
+  border: 2px solid #4FB6F7;
+  border-right: none;
+  border-left: none;
 }
 
 .footer-inner {
@@ -471,7 +485,7 @@ paper-button.anchor-button {
   }
 
   .misc-card > .tools {
-    min-width: auto;
+    min-width: 0;
   }
 
   .wait-list-btn {
@@ -16728,7 +16742,7 @@ module.exports = Array.isArray || function (arr) {
 
       _selectedChanged: function(selected, old) {
         if (old != null) {
-          this._scrollposMap[old] = {x: window.scrollX, y: window.scrollY};
+          this._scrollposMap[old] = {x: window.pageXOffset, y: window.pageYOffset};
         }
         var pos = this._scrollposMap[selected];
         if (pos != null && !this.reset) {
