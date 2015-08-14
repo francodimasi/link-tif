@@ -115,6 +115,17 @@ h3 {
   transition: opacity 0.1s, visibility 0.1s;
 }
 
+.header-tools {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+}
+
+.header-social-icon {
+  padding: 18px 12px;
+  color: #147BCC;
+}
+
 .header-layout[page=home] .main-header:not([threadhold-matches]) .toolbar-badge {
   opacity: 0;
   visibility: hidden;
@@ -351,6 +362,7 @@ h3 {
 
 .misc-card paper-button {
   width: 100%;
+  text-transform: none;
 }
 
 paper-button.anchor-button {
@@ -365,6 +377,14 @@ paper-button.anchor-button {
 .anchor-button.red {
   background-color: #FC6C9C;
   color: #fff;
+}
+
+.extended-gplus-link {
+  margin-right: 16px;
+}
+
+.extended-icon {
+  margin-right: 4px;
 }
 
 .codelabs {

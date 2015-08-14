@@ -68,7 +68,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </iron-selector>
             </div>
 
-            <iron-icon class="menu-icon narrow-only" icon="menu" drawer-toggle></iron-icon>
+            <div class="header-tools horizontal center layout">
+              <a href="https://plus.google.com/+PolymerProject" target="_blank">
+                <iron-icon class="header-social-icon"" icon="summit:post-gplus"></iron-icon>
+              </a>
+              <a href="https://twitter.com/polymer" target="_blank">
+                <iron-icon class="header-social-icon" icon="summit:post-twitter"></iron-icon>
+              </a>
+              <iron-icon class="menu-icon narrow-only" icon="menu" drawer-toggle></iron-icon>
+            </div>
           </x-toolbar>
         </x-header>
 
@@ -139,9 +147,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   <p>Streaming video, Polymer Codelabs, and our social media community are a few alternatives for staying connected if you’re unable to attend.</p>
                 </section>
                 <div class="tools">
-                  <a class="bottom-spacer" tabindex="-1" target="_blank" href="https://twitter.com/polymer">
-                    <paper-button class="anchor-button blue" raised>Join the Conversation</paper-button>
-                  </a>
+                  <div class="bottom-spacer horizontal layout">
+                    <a class="extended-gplus-link flex" tabindex="-1" target="_blank" href="https://plus.google.com/+PolymerProject">
+                      <paper-button class="anchor-button blue" raised>
+                        <iron-icon class="extended-icon" icon="summit:post-gplus"></iron-icon>Google+
+                      </paper-button>
+                    </a>
+                    <a class="flex" tabindex="-1" target="_blank" href="https://twitter.com/polymer">
+                      <paper-button class="anchor-button blue" raised>
+                        <iron-icon class="extended-icon" icon="summit:post-twitter"></iron-icon>Twitter+
+                      </paper-button>
+                    </a>
+                  </div>
                   <a tabindex="-1" target="_blank" href="https://www.youtube.com/user/GoogleDevelopers">
                     <paper-button class="anchor-button red" raised>Stream Video During the Summit</paper-button>
                   </a>
