@@ -142,6 +142,17 @@ h3 {
   transition: opacity 0.1s, visibility 0.1s;
 }
 
+.header-tools {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+}
+
+.header-social-icon {
+  padding: 18px 12px;
+  color: #147BCC;
+}
+
 .header-layout[page=home] .main-header:not([threadhold-matches]) .toolbar-badge {
   opacity: 0;
   visibility: hidden;
@@ -378,6 +389,7 @@ h3 {
 
 .misc-card paper-button {
   width: 100%;
+  text-transform: none;
 }
 
 paper-button.anchor-button {
@@ -392,6 +404,14 @@ paper-button.anchor-button {
 .anchor-button.red {
   background-color: #FC6C9C;
   color: #fff;
+}
+
+.extended-gplus-link {
+  margin-right: 16px;
+}
+
+.extended-icon {
+  margin-right: 4px;
 }
 
 .codelabs {
@@ -16643,10 +16663,7 @@ module.exports = Array.isArray || function (arr) {
           }
 
           if (y !== this._oldY) {
-            this._transformY(-y);
-            if (this.condenses) {
-              this._transformY(Math.min(y, this._deltaHeight), this._topbar);
-            }
+            this._transformHeader(y);
             this.fire('header-transform');
           }
 
@@ -16659,17 +16676,20 @@ module.exports = Array.isArray || function (arr) {
         this.fire('header-scroll', {scrollTop: top});
       },
 
+      _transformHeader: function(y) {
+        this._transformY(-y);
+        if (this.condenses) {
+          this._transformY(Math.min(y, this._deltaHeight), this._topbar);
+        }
+      },
+
       _transformY: function(y, node) {
         this.transform('translate3d(0,' + y + 'px,0)', node);
       },
 
       _fixedChanged: function(fixed) {
         if (fixed) {
-          var y = 0;
-          this._transformY(-y);
-          if (this.condenses) {
-            this._transformY(Math.min(y, this._deltaHeight), this._topbar);
-          }
+          this._transformHeader(0);
         }
       }
 
@@ -17416,7 +17436,15 @@ module.exports = Array.isArray || function (arr) {
               </iron-selector>
             </div>
 
-            <iron-icon class="menu-icon narrow-only" icon="menu" drawer-toggle=""></iron-icon>
+            <div class="header-tools horizontal center layout">
+              <a href="https://plus.google.com/+PolymerProject" target="_blank">
+                <iron-icon class="header-social-icon" "="" icon="summit:post-gplus"></iron-icon>
+              </a>
+              <a href="https://twitter.com/polymer" target="_blank">
+                <iron-icon class="header-social-icon" icon="summit:post-twitter"></iron-icon>
+              </a>
+              <iron-icon class="menu-icon narrow-only" icon="menu" drawer-toggle=""></iron-icon>
+            </div>
           </x-toolbar>
         </x-header>
 
@@ -17486,9 +17514,18 @@ module.exports = Array.isArray || function (arr) {
                   <p>Streaming video, Polymer Codelabs, and our social media community are a few alternatives for staying connected if you’re unable to attend.</p>
                 </section>
                 <div class="tools">
-                  <a class="bottom-spacer" tabindex="-1" target="_blank" href="https://twitter.com/polymer">
-                    <paper-button class="anchor-button blue" raised="">Join the Conversation</paper-button>
-                  </a>
+                  <div class="bottom-spacer horizontal layout">
+                    <a class="extended-gplus-link flex" tabindex="-1" target="_blank" href="https://plus.google.com/+PolymerProject">
+                      <paper-button class="anchor-button blue" raised="">
+                        <iron-icon class="extended-icon" icon="summit:post-gplus"></iron-icon>Google+
+                      </paper-button>
+                    </a>
+                    <a class="flex" tabindex="-1" target="_blank" href="https://twitter.com/polymer">
+                      <paper-button class="anchor-button blue" raised="">
+                        <iron-icon class="extended-icon" icon="summit:post-twitter"></iron-icon>Twitter+
+                      </paper-button>
+                    </a>
+                  </div>
                   <a tabindex="-1" target="_blank" href="https://www.youtube.com/user/GoogleDevelopers">
                     <paper-button class="anchor-button red" raised="">Stream Video During the Summit</paper-button>
                   </a>
