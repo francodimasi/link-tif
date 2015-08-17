@@ -421,6 +421,10 @@ paper-button.anchor-button {
   border-left: none;
 }
 
+schedule-grid, speakers-grid {
+  min-height: 100vh;
+}
+
 .footer-inner {
   max-width: 900px;
   margin: 0 auto;
