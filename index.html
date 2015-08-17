@@ -6,6 +6,8 @@
 
   <title>Polymer Summit 2015</title>
 
+  <link rel="shortcut icon" href="images/logo-32.png">
+
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Polymer Summit 2015">
 
@@ -235,17 +237,23 @@ h3 {
 }
 
 .welcome-msg {
-  max-width: 740px;
+  max-width: 600px;
   padding: 64px 16px;
-  text-align: center;
-  font-size: 23px;
+  line-height: 32px;
+}
+
+.welcome-msg time {
+  min-width: 150px;
+  font-weight: 600;
 }
 
 .wait-list-banner {
   position: relative;
-  padding: 32px 0;
+  padding: 24px 8px;
   box-sizing: border-box;
   text-align: center;
+  font-size: 30px;
+  line-height: 46px;
   color: #fff;
   /* pink pattern */
   background:
@@ -255,15 +263,17 @@ h3 {
   background-size: 25%;
 }
 
-.wait-list-btn {
+.pink-arrow-btn {
   display: block;
   position: relative;
   padding: 16px;
-  margin-left: 24px;
+  margin-left: 16px;
   background-color: #E45484;
+  font-size: 23px;
+  line-height: 24px;
 }
 
-.wait-list-btn::after {
+.pink-arrow-btn::after {
   content: '';
   position: absolute;
   top: calc(50% - 14px);
@@ -275,6 +285,10 @@ h3 {
   border-style: solid;
   -webkit-transform: scaleY(2.0);
   transform: scaleY(2.0);
+}
+
+.signup-live-stream-btn {
+  margin-right: 24px;
 }
 
 .amsterdam-bg {
@@ -471,6 +485,10 @@ paper-button.anchor-button {
     margin-bottom: 16px;
   }
 
+  .wait-list-banner > :first-child {
+    margin-bottom: 24px;
+  }
+
   .speakers-banner {
     padding: 24px 0 8px;
   }
@@ -508,10 +526,6 @@ paper-button.anchor-button {
     min-width: 0;
   }
 
-  .wait-list-btn {
-    margin: 0;
-  }
-
   .wait-list-banner {
     background: #FC6C9C url("images/Pink_BG_Pattern/Mobile/Summit_PinkBGMobile.png") center center;
     background-size: cover;
@@ -519,8 +533,16 @@ paper-button.anchor-button {
 }
 
 @media (max-width: 420px) {
+  .welcome-msg {
+    padding: 32px 16px;
+  }
+
   .amsterdam-info section {
     width: 100%;
+  }
+
+  .amsterdam-info h3 {
+    font-size: 30px;
   }
 
   .misc-card {
@@ -16427,7 +16449,7 @@ module.exports = Array.isArray || function (arr) {
       },
 
       _computeMainStyle: function(narrow, drawerWidth) {
-        return 'margin-left: ' + (narrow ? '' : drawerWidth);
+        return 'padding-left: ' + (narrow ? '' : drawerWidth);
       },
 
       _disableBodyScroll: function(narrow, opened) {
@@ -17268,6 +17290,7 @@ module.exports = Array.isArray || function (arr) {
     .card {
       padding-top: 16px;
       background-color: #fff;
+      min-height: 400px;
     }
 
     .card, .date-card {
@@ -17276,6 +17299,7 @@ module.exports = Array.isArray || function (arr) {
     }
 
     .card[narrow] {
+      min-height: 0;
       box-shadow: none;
       border-bottom: 1px solid #ddd;
     }
@@ -17450,7 +17474,7 @@ module.exports = Array.isArray || function (arr) {
 
         <div class="speakers-banner blue-banner home-page-hidden responsive horizontal center-center layout">
           <div class="horizontal center layout">
-            <div>14 Speakers</div><div class="dot-separator"></div><div>6 Codelabs</div>
+            <div>18 Speakers</div><div class="dot-separator"></div><div>10 Code labs</div>
           </div>
           <div class="dot-separator wide-only"></div>
           <div>Monday &amp; Tuesday</div>
@@ -17471,12 +17495,30 @@ module.exports = Array.isArray || function (arr) {
             </div>
 
             <div class="vertical center layout">
-              <p class="welcome-msg">Join us for an evening of breakout sessions and code labs, followed by an all-day summit of Polymer tech talks and an after hours event.</p>
+              <div class="welcome-msg">
+                <section class="bottom-spacer responsive horizontal layout">
+                  <time>September 14</time>
+                  <div class="flex-auto">Join us for an evening of breakout sessions and code labs for hands-on learning.</div>
+                </section>
+                <section class="responsive horizontal layout">
+                  <time>September 15</time>
+                  <div class="flex-auto">Come out for an all-day summit of Polymer tech talks and an after hours event.</div>
+                </section>
+              </div>
             </div>
 
-            <div class="wait-list-banner pattern responsive horizontal center-center layout">
-              <h3>Whoa! We’re already at capacity.</h3>
-              <a class="wait-list-btn" target="_blank" href="https://polymer.eventfarm.com/orders/soldOut/7fff5387-0000-4556-a4c1-610d82a69538">Join the Waiting List</a>
+            <div class="wait-list-banner">
+              <div class="responsive horizontal center-center layout">
+                <span>Whoa! We’re already at capacity.</span>
+                <a class="pink-arrow-btn " target="_blank" href="https://polymer.eventfarm.com/orders/soldOut/7fff5387-0000-4556-a4c1-610d82a69538">Join the Waiting List</a>
+              </div>
+              <div class="responsive horizontal center-center layout">
+                <span class="horizontal center layout">
+                  <span>Or,</span>
+                  <a class="signup-live-stream-btn pink-arrow-btn " target="_blank" href="https://services.google.com/fb/forms/polymer2015/">Sign up</a>
+                </span>
+                <span>to watch the livestream from anywhere.</span>
+              </div>
             </div>
 
             <a class="amsterdam-bg" target="_blank" data-outbound="image-map" href="https://www.google.com/maps/place/Muziekgebouw+aan+'t+IJ/@52.3783041,4.9131203,15z/data=!4m2!3m1!1s0x0:0x84b02f41a342e459"></a>
@@ -17491,6 +17533,7 @@ module.exports = Array.isArray || function (arr) {
               <div class="getting-there flex vertical center layout">
                 <section>
                   <h3>Getting There.</h3>
+                  <div class="direction">Piet Heinkade 1, 1019 BR Amsterdam, Netherlands (Near the Amsterdam Central train station)</div>
                   <div>BY FOOT</div>
                   <div class="direction">Approx 15 minutes from Central Station</div>
                   <div>BY TRAM</div>
@@ -17511,7 +17554,7 @@ module.exports = Array.isArray || function (arr) {
               <paper-material class="misc-card responsive horizontal layout">
                 <section class="misc-card-content flex-auto">
                   <h3>Can’t make it this year?</h3>
-                  <p>Streaming video, Polymer Codelabs, and our social media community are a few alternatives for staying connected if you’re unable to attend.</p>
+                  <p>Streaming video, Polymer Code labs, and our social media community are a few alternatives for staying connected if you’re unable to attend.</p>
                 </section>
                 <div class="tools">
                   <div class="bottom-spacer horizontal layout">
@@ -17534,18 +17577,18 @@ module.exports = Array.isArray || function (arr) {
             </div>
 
             <div class="misc-banner vertical center-center layout">
-              <h3>POLYMER CODELABS</h3><div class="divider"></div>
-              <div class="desc">Learn and Build with Polymer Team</div>
+              <h3>POLYMER CODE LABS</h3><div class="divider"></div>
+              <div class="desc">Learn and Build with the Polymer Team</div>
             </div>
 
             <div class="vertical center layout">
               <paper-material class="misc-card">
                 <div class="codelabs">
-                  <h3>Codelabs will be happening during the Summit,</h3>
+                  <h3>Code labs will be happening during the Summit,</h3>
                   <p>but even if you won’t be attendance these will be available online for you to work from the comfort of your own home...or favorite coffee shop.</p>
                 </div>
                 <a tabindex="-1" target="_blank" href="">
-                  <paper-button class="anchor-button blue" raised="">Learn More</paper-button>
+                  <paper-button class="anchor-button blue" disabled="" raised="">Coming Soon!</paper-button>
                 </a>
               </paper-material>
             </div>
@@ -17558,9 +17601,18 @@ module.exports = Array.isArray || function (arr) {
 
         </iron-pages>
 
-        <div class="wait-list-banner home-page-hidden responsive horizontal center-center layout">
-          <h3>Whoa! We’re already at capacity.</h3>
-          <a class="wait-list-btn" target="_blank" href="https://polymer.eventfarm.com/orders/soldOut/7fff5387-0000-4556-a4c1-610d82a69538">Join the Waiting List</a>
+        <div class="wait-list-banner home-page-hidden">
+          <div class="responsive horizontal center-center layout">
+            <span>Whoa! We’re already at capacity.</span>
+            <a class="pink-arrow-btn " target="_blank" href="https://polymer.eventfarm.com/orders/soldOut/7fff5387-0000-4556-a4c1-610d82a69538">Join the Waiting List</a>
+          </div>
+          <div class="responsive horizontal center-center layout">
+            <span class="horizontal center layout">
+              <span>Or,</span>
+              <a class="signup-live-stream-btn pink-arrow-btn " target="_blank" href="https://services.google.com/fb/forms/polymer2015/">Sign up</a>
+            </span>
+            <span>to watch the livestream from anywhere.</span>
+          </div>
         </div>
 
         <a class="amsterdam-bg home-page-hidden vertical center-center layout" target="_blank" data-outbound="image-map" href="https://www.google.com/maps/place/Muziekgebouw+aan+'t+IJ/@52.3783041,4.9131203,15z/data=!4m2!3m1!1s0x0:0x84b02f41a342e459">
@@ -17581,6 +17633,8 @@ module.exports = Array.isArray || function (arr) {
             <a target="_blank" href="http://polymer.github.io/LICENSE.txt" data-outbound="license-txt">© 2015 Polymer Authors</a>
             <div class="dot-separator wide-only"></div>
             <a target="_blank" href="https://www.polymer-project.org" data-outbound="about-polymer">About Polymer</a>
+            <div class="dot-separator wide-only"></div>
+            <a target="_blank" href="https://docs.google.com/document/d/1RgLpLH5qMgN9sn3ieQ23Cpcab94-MS40HyAe9EdfFEo/edit" data-outbound="code-of-conduct">Code of Conduct</a>
           </div>
         </footer>
 
