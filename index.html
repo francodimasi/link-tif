@@ -15141,6 +15141,7 @@ module.exports = Array.isArray || function (arr) {
 
     attached: function() {
       this.style.opacity = 0;
+      this._updateCascadedNodes();
     },
 
     _showingChanged: function(showing) {
