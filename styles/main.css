@@ -208,17 +208,23 @@ h3 {
 }
 
 .welcome-msg {
-  max-width: 740px;
+  max-width: 600px;
   padding: 64px 16px;
-  text-align: center;
-  font-size: 23px;
+  line-height: 32px;
+}
+
+.welcome-msg time {
+  min-width: 150px;
+  font-weight: 600;
 }
 
 .wait-list-banner {
   position: relative;
-  padding: 32px 0;
+  padding: 24px 8px;
   box-sizing: border-box;
   text-align: center;
+  font-size: 30px;
+  line-height: 46px;
   color: #fff;
   /* pink pattern */
   background:
@@ -228,15 +234,17 @@ h3 {
   background-size: 25%;
 }
 
-.wait-list-btn {
+.pink-arrow-btn {
   display: block;
   position: relative;
   padding: 16px;
-  margin-left: 24px;
+  margin-left: 16px;
   background-color: #E45484;
+  font-size: 23px;
+  line-height: 24px;
 }
 
-.wait-list-btn::after {
+.pink-arrow-btn::after {
   content: '';
   position: absolute;
   top: calc(50% - 14px);
@@ -248,6 +256,10 @@ h3 {
   border-style: solid;
   -webkit-transform: scaleY(2.0);
   transform: scaleY(2.0);
+}
+
+.signup-live-stream-btn {
+  margin-right: 24px;
 }
 
 .amsterdam-bg {
@@ -444,6 +456,10 @@ paper-button.anchor-button {
     margin-bottom: 16px;
   }
 
+  .wait-list-banner > :first-child {
+    margin-bottom: 24px;
+  }
+
   .speakers-banner {
     padding: 24px 0 8px;
   }
@@ -481,10 +497,6 @@ paper-button.anchor-button {
     min-width: 0;
   }
 
-  .wait-list-btn {
-    margin: 0;
-  }
-
   .wait-list-banner {
     background: #FC6C9C url(../images/Pink_BG_Pattern/Mobile/Summit_PinkBGMobile.png) center center;
     background-size: cover;
@@ -492,8 +504,16 @@ paper-button.anchor-button {
 }
 
 @media (max-width: 420px) {
+  .welcome-msg {
+    padding: 32px 16px;
+  }
+
   .amsterdam-info section {
     width: 100%;
+  }
+
+  .amsterdam-info h3 {
+    font-size: 30px;
   }
 
   .misc-card {
