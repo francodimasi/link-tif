@@ -125,11 +125,11 @@ h3 {
 }
 
 .header-layout[page=home] .home-page-hidden {
-  display: none;
+  display: none !important;
 }
 
 .header-layout:not([page=home]) .home-page-only {
-  display: none;
+  display: none !important;
 }
 
 .main-toolbar {
@@ -239,6 +239,7 @@ h3 {
 .welcome-msg {
   max-width: 600px;
   padding: 64px 16px;
+  margin: 0 auto;
   line-height: 32px;
 }
 
@@ -250,6 +251,7 @@ h3 {
 .wait-list-banner {
   position: relative;
   padding: 24px 8px;
+  margin: 0 auto;
   box-sizing: border-box;
   text-align: center;
   font-size: 30px;
@@ -264,10 +266,10 @@ h3 {
 }
 
 .pink-arrow-btn {
-  display: block;
+  display: inline-block;
   position: relative;
   padding: 16px;
-  margin-left: 16px;
+  margin: 0 16px;
   background-color: #E45484;
   font-size: 23px;
   line-height: 24px;
@@ -365,7 +367,7 @@ h3 {
 .misc-banner > .divider {
   width: 200px;
   padding-top: 24px;
-  margin-bottom: 24px;
+  margin: 0 auto 24px;
   border-bottom: 2px solid #4FB6F7;
 }
 
@@ -450,10 +452,6 @@ paper-button.anchor-button {
   border-left: none;
 }
 
-schedule-grid, speakers-grid {
-  min-height: 100vh;
-}
-
 .footer-inner {
   max-width: 900px;
   margin: 0 auto;
@@ -468,6 +466,10 @@ schedule-grid, speakers-grid {
   color: #333;
 }
 
+schedule-grid, speakers-grid {
+  min-height: 90vh;
+}
+
 @media (min-width: 801px) {
   .narrow-only {
     display: none !important;
@@ -479,6 +481,10 @@ schedule-grid, speakers-grid {
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
     flex-direction: column;
+  }
+
+  .responsive.horizontal.layout:not(.center):not(.center-center) {
+    display: block;
   }
 
   .wide-only {
@@ -17280,19 +17286,19 @@ module.exports = Array.isArray || function (arr) {
       box-sizing: border-box;
     }
 
-    @media (max-width: 1279px) {
+    @media (max-width: 1299px) {
       :host {
         max-width: 948px;
       }
     }
 
-    @media (max-width: 963px) {
+    @media (max-width: 983px) {
       :host {
         max-width: 632px;
       }
     }
 
-    @media (max-width: 647px) {
+    @media (max-width: 667px) {
       :host {
         max-width: 616px;
         padding: 4px;
@@ -17303,7 +17309,7 @@ module.exports = Array.isArray || function (arr) {
       }
     }
 
-    @media (max-width: 623px) {
+    @media (max-width: 643px) {
       :host {
         max-width: auto;
         padding: 0;
@@ -17721,7 +17727,7 @@ module.exports = Array.isArray || function (arr) {
 
             <div class="header-tools horizontal center layout">
               <a href="https://plus.google.com/+PolymerProject" target="_blank">
-                <iron-icon class="header-social-icon" "="" icon="summit:post-gplus"></iron-icon>
+                <iron-icon class="header-social-icon" icon="summit:post-gplus"></iron-icon>
               </a>
               <a href="https://twitter.com/polymer" target="_blank">
                 <iron-icon class="header-social-icon" icon="summit:post-twitter"></iron-icon>
@@ -17753,7 +17759,7 @@ module.exports = Array.isArray || function (arr) {
               <time>September 14-15, 2015</time>
             </div>
 
-            <div class="vertical center layout">
+            <div>
               <div class="welcome-msg">
                 <section class="bottom-spacer responsive horizontal layout">
                   <time>September 14</time>
@@ -17767,15 +17773,13 @@ module.exports = Array.isArray || function (arr) {
             </div>
 
             <div class="wait-list-banner">
-              <div class="responsive horizontal center-center layout">
+              <div>
                 <span>Whoa! We’re already at capacity.</span>
                 <a class="pink-arrow-btn " target="_blank" href="https://polymer.eventfarm.com/orders/soldOut/7fff5387-0000-4556-a4c1-610d82a69538">Join the Waiting List</a>
               </div>
-              <div class="responsive horizontal center-center layout">
-                <span class="horizontal center layout">
-                  <span>Or,</span>
-                  <a class="signup-live-stream-btn pink-arrow-btn " target="_blank" href="https://services.google.com/fb/forms/polymer2015/">Sign up</a>
-                </span>
+              <div>
+                <span>Or,</span>
+                <a class="signup-live-stream-btn pink-arrow-btn " target="_blank" href="https://services.google.com/fb/forms/polymer2015/">Sign up</a>
                 <span>to watch the livestream from anywhere.</span>
               </div>
             </div>
@@ -17803,13 +17807,13 @@ module.exports = Array.isArray || function (arr) {
               </div>
             </div>
 
-            <div class="misc-banner vertical center-center layout">
+            <div class="misc-banner">
               <h3>SUMMIT EXTENDED</h3>
               <div class="divider"></div>
               <div class="desc">Be There From Anywhere</div>
             </div>
 
-            <div class="vertical center layout">
+            <div class="horizontal center-center layout">
               <paper-material class="misc-card responsive horizontal layout">
                 <section class="misc-card-content flex-auto">
                   <h3>Can’t make it this year?</h3>
@@ -17835,12 +17839,12 @@ module.exports = Array.isArray || function (arr) {
               </paper-material>
             </div>
 
-            <div class="misc-banner vertical center-center layout">
+            <div class="misc-banner">
               <h3>POLYMER CODE LABS</h3><div class="divider"></div>
               <div class="desc">Learn and Build with the Polymer Team</div>
             </div>
 
-            <div class="vertical center layout">
+            <div class="horizontal center-center layout">
               <paper-material class="misc-card">
                 <div class="codelabs">
                   <h3>Code labs will be happening during the Summit,</h3>
@@ -17861,15 +17865,13 @@ module.exports = Array.isArray || function (arr) {
         </iron-pages>
 
         <div class="wait-list-banner home-page-hidden">
-          <div class="responsive horizontal center-center layout">
+          <div>
             <span>Whoa! We’re already at capacity.</span>
             <a class="pink-arrow-btn " target="_blank" href="https://polymer.eventfarm.com/orders/soldOut/7fff5387-0000-4556-a4c1-610d82a69538">Join the Waiting List</a>
           </div>
-          <div class="responsive horizontal center-center layout">
-            <span class="horizontal center layout">
-              <span>Or,</span>
-              <a class="signup-live-stream-btn pink-arrow-btn " target="_blank" href="https://services.google.com/fb/forms/polymer2015/">Sign up</a>
-            </span>
+          <div>
+            <span>Or,</span>
+            <a class="signup-live-stream-btn pink-arrow-btn " target="_blank" href="https://services.google.com/fb/forms/polymer2015/">Sign up</a>
             <span>to watch the livestream from anywhere.</span>
           </div>
         </div>
