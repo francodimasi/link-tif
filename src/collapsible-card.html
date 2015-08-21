@@ -27,7 +27,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
 
     <content select=":not([collapsible-content])"></content>
-    <iron-collapse id="collapse" opened="{{opened}}">
+    <iron-collapse opened="{{opened}}">
       <content></content>
     </iron-collapse>
 
@@ -56,7 +56,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _tapHandler: function(e) {
         var target = Polymer.dom(e).localTarget;
         if (target && target.hasAttribute('collapsible-toggle')) {
-          this.$.collapse.toggle();
+          this.opened = !this.opened;
         }
       }
 
