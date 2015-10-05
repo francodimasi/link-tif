@@ -47,7 +47,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <template is="dom-bind" id="app">
 
-    <x-drawer-layout force-narrow right-drawer>
+    <app-scrollpos-control selected="[[page]]"></app-scrollpos-control>
+
+    <app-drawer-layout force-narrow drawer-position="right">
 
       <div class="nav fit" drawer>
         <iron-selector class="menu" selected="[[page]]" activate-event="click" attr-for-selected="name">
@@ -57,10 +59,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </iron-selector>
       </div>
 
-      <x-header-layout class="header-layout" main page$="[[page]]">
+      <app-header-layout class="header-layout" main page$="[[page]]">
 
-        <x-header class="main-header" waterfall fixed="[[!narrowLayout]]" threadhold="232">
-          <x-toolbar class="main-toolbar">
+        <app-header class="main-header" waterfall fixed="[[!narrowLayout]]" threadhold="232">
+          <app-toolbar class="main-toolbar">
             <a class="toolbar-badge badge-blue-small" href=""></a>
 
             <div class="flex horizontal center-center layout">
@@ -79,8 +81,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </a>
               <iron-icon class="menu-icon narrow-only" icon="menu" drawer-toggle></iron-icon>
             </div>
-          </x-toolbar>
-        </x-header>
+          </app-toolbar>
+        </app-header>
 
         <div class="speakers-banner blue-banner home-page-hidden responsive horizontal center-center layout">
           <div class="horizontal center layout">
@@ -246,16 +248,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </div>
         </footer>
 
-      </x-header-layout>
+      </app-header-layout>
 
-    </x-drawer-layout>
+    </app-drawer-layout>
 
     <iron-media-query query="(max-width: 643px)" query-matches="{{narrowLayout}}"></iron-media-query>
 
     <iron-ajax auto url="data/speakers.json" last-response="{{speakers}}"></iron-ajax>
     <iron-ajax auto url="data/schedule.json" last-response="{{schedule}}"></iron-ajax>
-
-    <x-scrollpos-control selected="[[page]]"></x-scrollpos-control>
 
   </template>
 
