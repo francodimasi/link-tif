@@ -1,0 +1,6 @@
+---
+applications:
+- name: link-tif
+  memory: 128M
+  host: redlink
+  command: node app.js
