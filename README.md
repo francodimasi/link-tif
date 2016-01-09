@@ -1,8 +1,9 @@
-# summit
+# Torneo de Innovacion Financiera
 
-## Running Locally
+## Para correr localmente
 
 1. `bower install`
-2. `python -m SimpleHTTPServer`
+2. `cd public`
+3. `python -m SimpleHTTPServer`
 
 http://localhost:8000
