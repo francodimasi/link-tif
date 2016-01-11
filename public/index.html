@@ -45,7 +45,7 @@
         <iron-selector class="menu" selected="[[page]]" activate-event="click" attr-for-selected="name">
           <a name="home" class="menu-item" href="">HOME</a><br>
           <a name="schedule" class="menu-item" href="schedule">CALENDARIO</a><br>
-          <a name="speakers" class="menu-item" href="speakers">SPEAKERS</a>
+          <!-- <a name="speakers" class="menu-item" href="speakers">SPEAKERS</a> -->
         </iron-selector>
       </div>
 
@@ -58,7 +58,7 @@
             <div class="flex horizontal center-center layout">
               <iron-selector class="wide-only" selected="[[page]]" activate-event="click" attr-for-selected="name">
                 <a name="schedule" class="tab" href="schedule">CALENDARIO</a>
-                <a name="speakers" class="tab" href="speakers">SPEAKERS</a>
+                <!-- <a name="speakers" class="tab" href="speakers">SPEAKERS</a> -->
               </iron-selector>
             </div>
 
@@ -178,8 +178,8 @@
             </div>
 
             <div class="misc-banner">
-              <h3>POLYMER CODE LABS</h3><div class="divider"></div>
-              <div class="desc">Learn and Build with the Polymer Team</div>
+              <h3>Red Link Code Labs</h3><div class="divider"></div>
+              <div class="desc">Aprende y Crea con el team de Red Link</div>
             </div>
 
             <div class="horizontal center-center layout">
@@ -198,13 +198,13 @@
 
           <schedule-grid name="schedule" schedule="{{schedule}}" narrow-layout="{{narrowLayout}}"></schedule-grid>
 
-          <speakers-grid name="speakers" speakers="{{speakers}}" narrow-layout="{{narrowLayout}}"></speakers-grid>
+          <!-- <speakers-grid name="speakers" speakers="{{speakers}}" narrow-layout="{{narrowLayout}}"></speakers-grid> -->
 
         </iron-pages>
 
         <div class="wait-list-banner home-page-hidden">
           <div>
-            <span>Whoa! We’re already at capacity.</span>
+            <span>Uffs! Apurate falta poco.</span>
             <a class="pink-arrow-btn " target="_blank" href="https://polymer.eventfarm.com/orders/soldOut/7fff5387-0000-4556-a4c1-610d82a69538">Join the Waiting List</a>
           </div>
           <div>
@@ -226,15 +226,15 @@
 
         <footer>
           <div class="footer-inner responsive horizontal center layout">
-            <a class="horizontal center layout" target="_blank" href="https://www.polymer-project.org">
-              <div class="logo"></div><div class="title">Polymer</div>
+            <a class="horizontal center layout" target="_blank" href="https://www.ibm.com">
+              <div class="logo"></div><div class="title">TIF</div>
             </a>
             <div class="flex"></div>
-            <a target="_blank" href="http://polymer.github.io/LICENSE.txt" data-outbound="license-txt">&copy; 2015 Polymer Authors</a>
+            <a target="_blank" href="http://polymer.github.io/LICENSE.txt" data-outbound="license-txt">&copy; 2016 IBM Corp.</a>
             <div class="dot-separator wide-only"></div>
-            <a target="_blank" href="https://www.polymer-project.org" data-outbound="about-polymer">About Polymer</a>
-            <div class="dot-separator wide-only"></div>
-            <a target="_blank" href="code-of-conduct.html" data-outbound="code-of-conduct">Code of Conduct</a>
+            <!-- <a target="_blank" href="https://www.polymer-project.org" data-outbound="about-polymer">About Polymer</a>
+            <div class="dot-separator wide-only"></div> -->
+            <a target="_blank" href="code-of-conduct.html" data-outbound="code-of-conduct">Codigo de Conducta</a>
           </div>
         </footer>
 
@@ -244,7 +244,7 @@
 
     <iron-media-query query="(max-width: 643px)" query-matches="{{narrowLayout}}"></iron-media-query>
 
-    <iron-ajax auto url="data/speakers.json" last-response="{{speakers}}"></iron-ajax>
+    <!-- <iron-ajax auto url="data/speakers.json" last-response="{{speakers}}"></iron-ajax> -->
     <iron-ajax auto url="data/schedule.json" last-response="{{schedule}}"></iron-ajax>
 
   </template>
